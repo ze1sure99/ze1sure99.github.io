@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据结构和算法," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="知识总览 顺序表的定义 12345678910111213141516171819顺序表指的是用顺序存储的方式来实现的线性表而所谓顺序存储指的是把逻辑上相邻的数据元素存储在物理上也相邻的存储单元中这些数据元素之间的前后关系通过这种物理内存上的联系来体现我们强调过线性表当中的各个数据元素它们的数据类型都是相同的每个数据元素他们所占的内存空间是一样大的如果顺序表的第一个数据元素它的存放地址是这个地址的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="顺序表的定义和特性">
+<meta property="og:url" content="http://yoursite.com/2021/08/15/ch2.2-%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89/index.html">
+<meta property="og:site_name" content="ze1Sure">
+<meta property="og:description" content="知识总览 顺序表的定义 12345678910111213141516171819顺序表指的是用顺序存储的方式来实现的线性表而所谓顺序存储指的是把逻辑上相邻的数据元素存储在物理上也相邻的存储单元中这些数据元素之间的前后关系通过这种物理内存上的联系来体现我们强调过线性表当中的各个数据元素它们的数据类型都是相同的每个数据元素他们所占的内存空间是一样大的如果顺序表的第一个数据元素它的存放地址是这个地址的">
+<meta property="og:locale">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13885238588/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13890153174/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13897653877/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13897687613/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13898161089/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13898304053/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13898528964/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13900890579/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13900921004/0.png">
+<meta property="article:published_time" content="2021-08-15T10:43:58.000Z">
+<meta property="article:modified_time" content="2021-09-29T09:47:00.665Z">
+<meta property="article:author" content="ABCze1Sure">
+<meta property="article:tag" content="数据结构和算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://inews.gtimg.com/newsapp_ls/0/13885238588/0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/08/15/ch2.2-顺序表的定义/"/>
+
+
+
+
+
+  <title>顺序表的定义和特性 | ze1Sure</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/Ze1Sure" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+      <div class="site-meta-headline">
+        <a>
+          <img class="custom-logo-image" src="https://files.catbox.moe/ofn4fy.png"
+               alt="ze1Sure"/>
+        </a>
+      </div>
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ze1Sure</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">朝闻道 夕可眠矣</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/15/ch2.2-%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ze1Sure">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">顺序表的定义和特性</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-15T18:43:58+08:00">
+                2021-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/08/15/ch2.2-%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89/" class="leancloud_visitors" data-flag-title="顺序表的定义和特性">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  16
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="知识总览"><a href="#知识总览" class="headerlink" title="知识总览"></a>知识总览</h1><p><img src="https://inews.gtimg.com/newsapp_ls/0/13885238588/0.png" alt="知识总览"></p>
+<h1 id="顺序表的定义"><a href="#顺序表的定义" class="headerlink" title="顺序表的定义"></a>顺序表的定义</h1><p><img src="https://inews.gtimg.com/newsapp_ls/0/13890153174/0.png" alt="顺序表的定义"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">顺序表指的是用顺序存储的方式来实现的线性表</span><br><span class="line">而所谓顺序存储指的是把逻辑上相邻的数据元素存储在物理上也相邻的存储单元中</span><br><span class="line">这些数据元素之间的前后关系通过这种物理内存上的联系来体现</span><br><span class="line">我们强调过线性表当中的各个数据元素</span><br><span class="line">它们的数据类型都是相同的</span><br><span class="line">每个数据元素他们所占的内存空间是一样大的</span><br><span class="line">如果顺序表的第一个数据元素</span><br><span class="line">它的存放地址是这个地址的话</span><br><span class="line">那么 由于顺序表当中各个数据元素</span><br><span class="line">他们在物理内存上是连续存放的</span><br><span class="line">并且每个数据元素</span><br><span class="line">他们所占的空间大小都是相等的</span><br><span class="line">因此 第二个数据元素</span><br><span class="line">所存放的位置</span><br><span class="line">就应该是这个顺序表的起始地址</span><br><span class="line">加上数据元素的大小</span><br><span class="line">第三个数据元素存放的位置</span><br><span class="line">就应该是它的起始地址加上2*数据元素的大小</span><br><span class="line">以此类推</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">如何知道一个数据元素的大小到底是多少呢</span><br><span class="line">C语言当中提供了一个很方便使用的关键字</span><br><span class="line">叫sizeof() 打个小括号</span><br><span class="line">然后里边传入你的顺序表当中存放的这个数据元素的数据类型</span><br><span class="line">比如 如果你的顺序表当中存放的是一个一个的整数</span><br><span class="line">那么只要你用sizeof()里边的</span><br><span class="line">填入int 就可以得到一个int型的整数</span><br><span class="line">在这个系统当中</span><br><span class="line">它占多大的内存空间</span><br><span class="line">那在C语言当中</span><br><span class="line">很多情况下</span><br><span class="line">一个int型的变量</span><br><span class="line">它是占4个字节</span><br><span class="line">当然 你的顺序表当中还可以存放其他</span><br><span class="line">更复杂的数据</span><br><span class="line">比如说可以存放结构类型的数据</span><br><span class="line">像这个地方</span><br><span class="line">我们定义了一个叫Customer的结构</span><br><span class="line">里面存了两个整数</span><br><span class="line">分别是num和people</span><br><span class="line">那么两个整数</span><br><span class="line">每个整数占四个字节</span><br><span class="line">所以Customer这种数据类型</span><br><span class="line">它占的内存空间大小就应该是八个字节</span><br></pre></td></tr></table></figure>
+
+<h1 id="顺序表的是实现–静态分配"><a href="#顺序表的是实现–静态分配" class="headerlink" title="顺序表的是实现–静态分配"></a>顺序表的是实现–静态分配</h1><p><img src="https://inews.gtimg.com/newsapp_ls/0/13897653877/0.png" alt="静态分配"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">所谓静态分配</span><br><span class="line">就是指使用这种大家最熟悉的数组的这种定义方式</span><br><span class="line">来实现一个顺序表</span><br><span class="line">当然这是一个静态的数组</span><br><span class="line">也就是说</span><br><span class="line">这个数组的长度、大小</span><br><span class="line">一旦确定了之后</span><br><span class="line">它就不可以改变</span><br><span class="line">这是静态数组的特点</span><br><span class="line">我们的顺序表用这样的数据类型来表示</span><br><span class="line">里面定义了一个静态数组</span><br><span class="line">长度为Maxsize</span><br><span class="line">这是我们宏定义的一个常量</span><br><span class="line">另外</span><br><span class="line">还定义了一个叫length的变量</span><br><span class="line">用于表示当前这个顺序表它的实际长度到底是多少</span><br><span class="line">那Maxsize的值决定了顺序表</span><br><span class="line">它最多可以存放几个元素</span><br><span class="line">length的值表示的是当前这个顺序表当中已经存入了多少个元素</span><br><span class="line">如果从内存的视角来看的话</span><br><span class="line">当你声明了一个data数组的时候</span><br><span class="line">那么其实就是在内存当中开辟了一整片的连续空间</span><br><span class="line">这一整片的连续空间总共可以存放十个数据元素</span><br><span class="line">我们这儿的代码当中</span><br><span class="line">数据元素的类型用ElemType来表示</span><br><span class="line">Elem其实就是element元素的缩写</span><br><span class="line">数据元素的类型可以是int型</span><br><span class="line">可以是你自己定义的某一些更复杂的struct类型</span><br><span class="line">这个具体要看你要用你的顺序表来存什么</span><br><span class="line">那这个地方我们用ElemType来表示</span><br><span class="line">只是为了让它根据有通用性</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13897687613/0.png" alt="顺序表"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line">在这我们定义了一个顺序表</span><br><span class="line">这个顺序表是用于存放整数的</span><br><span class="line">也就说数据元素的数据类型是int</span><br><span class="line">那在这</span><br><span class="line">我们定义了一个叫做data的数组</span><br><span class="line">静态的数组用于存放这些数据元素</span><br><span class="line">最多只能存10个</span><br><span class="line">定义了这样的一个数据结构之后</span><br><span class="line">我们在main函数里首先声明一个sqlist</span><br><span class="line">也就是声明一个顺序表</span><br><span class="line">那么 在执行这句代码的时候</span><br><span class="line">其实计算机就会在内存当中给这个顺序表分配它所需要的空间</span><br><span class="line">首先是存放data数组的一整片的连续空间</span><br><span class="line">那这片空间的大小就应该是10乘以每一个数据元素的大小</span><br><span class="line">像这个地方</span><br><span class="line">由于我们的数据元素是int型</span><br><span class="line">所以每个数据元素的大小就应该是四个字节</span><br><span class="line">也就是data[0]是4个字节</span><br><span class="line">data[1]是4个字节</span><br><span class="line">data[2]是4个字节</span><br><span class="line">除了data之外</span><br><span class="line">也需要分配一个存放length这个变量的空间</span><br><span class="line">这个也是四个字节</span><br><span class="line">因为它也是int型的</span><br><span class="line">那接下来我们在这个地方</span><br><span class="line">我们实现了一个InitList这样的一个函数</span><br><span class="line">对这个顺序表进行初始化</span><br><span class="line">其实这个函数就是我们上一小节中提到的基本运算的一个</span><br><span class="line">既然main函数调用了InitList</span><br><span class="line">接下来就会开始执行这个函数</span><br><span class="line">里面的代码</span><br><span class="line">首先是一个for循环</span><br><span class="line">for循环做的事情就是把data这个数组当中</span><br><span class="line">所有的这些数据元素的值都置为0</span><br><span class="line">也就是给各个数据元素设置一个默认的初始值</span><br><span class="line">当然 这个设置默认初始值的步骤其实是可以省略的</span><br><span class="line">除此之外</span><br><span class="line">还需要把length的值置为0</span><br><span class="line">因为刚开始顺序表当中</span><br><span class="line">没有存入任何一个数据元素</span><br><span class="line">所以此时顺序表当前长度应该是0</span><br><span class="line">那这就是对顺序表的一个初始化工作</span><br><span class="line">接下来要探讨的问题是</span><br><span class="line">如果不给这个data数组设置一个默认的初始值的话</span><br><span class="line">会发生什么情况</span><br><span class="line">我们把这个部分的代码给去掉</span><br><span class="line">也就是说我们在对一个顺序表进行初始化的时候</span><br><span class="line">只是设置了他的length变量的值</span><br><span class="line">如果大家在自己的电脑上实现这一段代码的话</span><br><span class="line">那么大家的电脑上打印出来的</span><br><span class="line">data这个数组当中各个元素的值</span><br><span class="line">跟我的还会不一样</span><br><span class="line">那产生这种奇怪现象的原因是内存当中</span><br><span class="line">会有遗留的脏数据</span><br><span class="line">也就是说</span><br><span class="line">当我们在声明这个顺序表的时候</span><br><span class="line">虽然系统在背后给我们分配了这么一大片</span><br><span class="line">内存空间</span><br><span class="line">但是这一片内存空间之前存的是什么数据</span><br><span class="line">其实我们并不知道</span><br><span class="line">所以我们不给这些数据元素设置默认值的话</span><br><span class="line">那么会因为之前遗留下来的脏数据而导致我们的</span><br><span class="line">这个数组当中出现一些奇怪的数据</span><br><span class="line">不过刚才我们说过</span><br><span class="line">给各个数据元素设置默认值</span><br><span class="line">这一步其实是可省略的</span><br><span class="line">原因是我们在main函数里打印顺序表当中的内容</span><br><span class="line">这个操作其实是违规的</span><br><span class="line">我们就不应该</span><br><span class="line">按照这样的方式来访问顺序表</span><br><span class="line">因为顺序表当中不是定义了一个变量叫length</span><br><span class="line">length表示的是他当前的长度</span><br><span class="line">所以当我们在访问顺序表当中各个数据元素的时候</span><br><span class="line">不应该是从第一个元素访问到最后一个元素</span><br><span class="line">而应该是访问到顺序表当中</span><br><span class="line">当前实际已经存储的最后一个元素</span><br><span class="line">由于刚开始length的值是0</span><br><span class="line">所以如果用这种稍微正规一些的写法的话</span><br><span class="line">那么这个for循环当中的语句是不会被执行的</span><br><span class="line">所以</span><br><span class="line">为什么说我们可以省略</span><br><span class="line">给各个数据元素设置默认值这一步</span><br><span class="line">那是因为如果按正常的访问方式的话</span><br><span class="line">那么其实并不应该访问大于顺序表实际长度的那些数据元素</span><br><span class="line">当然</span><br><span class="line">其实更好的做法应该是使用基本操作来访问各个数据元素</span><br><span class="line">我们提到过</span><br><span class="line">实现一个基本操作叫GetElem(L,i)</span><br><span class="line">这个基本操作实现的事情是把L这个线性表当中</span><br><span class="line">的第i个元素给取出来</span><br><span class="line">所以使用基本操作来访问是最好的一种方式</span><br><span class="line">那这个地方想让大家重点体会的是</span><br><span class="line">这个脏数据是怎么回事</span><br><span class="line">既然内存当中会有脏数据</span><br><span class="line">所以当我们声明length这个变量的时候</span><br><span class="line">length的初始值把它设为0这一步</span><br><span class="line">是不是就肯定不能省略</span><br><span class="line">因为你无法预知</span><br><span class="line">在这小片的内存区域内之前存放的</span><br><span class="line">到底是什么数据</span><br><span class="line">那有的同学可能会说</span><br><span class="line">C语言不是会自动给int型</span><br><span class="line">的变量设置一个默认初始值为0吗</span><br><span class="line">那其实这个默认初始值设置为多少</span><br><span class="line">这是编译器做的事情</span><br><span class="line">如果换一个C语言的编译器</span><br><span class="line">也许他就不会帮你做这种初始化的工作</span><br><span class="line">所以当我们在声明一个顺序表的时候</span><br><span class="line">刚开始把他的length设为0这一步是必须做的</span><br><span class="line">那么通过刚才的代码</span><br><span class="line">相信大家对静态分配方式已经有了更深入的了解</span><br><span class="line">那么通过刚才的代码</span><br><span class="line">相信大家对顺序表的静态分配这种实现方式</span><br><span class="line">已经有了更深入的理解</span><br><span class="line">那这种实现方式的精髓在这个地方</span><br><span class="line">就是要定义一个静态的数组来存放你的数据元素</span><br></pre></td></tr></table></figure>
+
+<h1 id="存满了怎么办"><a href="#存满了怎么办" class="headerlink" title="存满了怎么办"></a>存满了怎么办</h1><p><img src="https://inews.gtimg.com/newsapp_ls/0/13898161089/0.png" alt="存满了怎么办"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">如果&quot;数组&quot;存满了怎么办？</span><br><span class="line">可以放弃治疗，顺序表的表长刚开始确定后就无法更改（存储空间是静态的）</span><br><span class="line">那既然这样的话</span><br><span class="line">你刚开始申请一大片连续的存储空间</span><br><span class="line">把这个数组的长度设大一点不就行了吗</span><br><span class="line">那如果采用这种方式的话</span><br><span class="line">存在的问题就是很浪费</span><br><span class="line">假如数组长度为10000</span><br><span class="line">最后只用了10个长度</span><br><span class="line">那这样就很浪费资源</span><br><span class="line">那从这个地方大家应该能够体会到静态分配</span><br><span class="line">这种实现方式</span><br><span class="line">它存在一定的局限性</span><br><span class="line">主要就是这个顺序表的大小</span><br><span class="line">容量</span><br><span class="line">它是不可调的</span><br><span class="line">无法更改</span><br><span class="line">那如果要让顺序表的大小可变的话</span><br><span class="line">那我们可以采用动态分配的这种实现方式</span><br></pre></td></tr></table></figure>
+
+<h1 id="顺序表的实现–动态分配"><a href="#顺序表的实现–动态分配" class="headerlink" title="顺序表的实现–动态分配"></a>顺序表的实现–动态分配</h1><p><img src="https://inews.gtimg.com/newsapp_ls/0/13898304053/0.png" alt="动态分配"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">如果采用动态分配来实现顺序表的话</span><br><span class="line">那么我们需要定义一个指针</span><br><span class="line">这个指针是只想了顺序表当中的第一个数据元素</span><br><span class="line">由于动态分配方式当中顺序表的容量大小</span><br><span class="line">是可以变的</span><br><span class="line">所以我们需要在这增加一个变量</span><br><span class="line">叫MaxSize</span><br><span class="line">表示顺序表的最大容量是多少</span><br><span class="line">除了最大容量之外</span><br><span class="line">当然也需要用length这个变量来记录顺序表</span><br><span class="line">当前长度</span><br><span class="line">也就说</span><br><span class="line">此时顺序表当中实际上已经存放了多少个数据元素</span><br><span class="line">C语言中提供了malloc和free这两个函数</span><br><span class="line">来分别实现动态的申请一片内存空间</span><br><span class="line">和释放一片内存空间</span><br><span class="line">malloc这个函数他所实现的事情是会申请一整片</span><br><span class="line">的连续的内存空间</span><br><span class="line">那这一整片的内存空间</span><br><span class="line">它肯定有个起始的内存地址</span><br><span class="line">所以 malloc函数执行结束之后</span><br><span class="line">他会 return 会返回一个指向这一整片</span><br><span class="line">存储空间开始地址的这个指针</span><br><span class="line">由于这一片存储空间是用于存放我们一个一个的数据元素的</span><br><span class="line">所以在这个地方</span><br><span class="line">我们需要把malloc函数返回的这个指针</span><br><span class="line">把它强制转换成你所定义的这个数据元素的</span><br><span class="line">数据类型所对应的指针</span><br><span class="line">比如</span><br><span class="line">如果你的顺序表示用于存放整数的</span><br><span class="line">也就说数据元素是int类型</span><br><span class="line">当你在使用malloc函数的时候</span><br><span class="line">就需要把这个ElemType把它换成int</span><br><span class="line">那malloc函数返回的这个内存的起始地址的这个指针</span><br><span class="line">我们需要把它赋给顺序表当中的data这个指针变量</span><br><span class="line">也就是说data这个指针是指向了这一整片存储空间</span><br><span class="line">的起始地址</span><br><span class="line">第二个需要注意的点</span><br><span class="line">既然malloc函数是申请一整片的连续存储空间</span><br><span class="line">那么你到底要申请多大的空间呢</span><br><span class="line">这个是由malloc函数的这个参数所知名的</span><br><span class="line">左边这个sizeOf(ElemType)之前我们讲过</span><br><span class="line">这个部分的式子</span><br><span class="line">得到的结果就是你的一个数据元素</span><br><span class="line">它所占存储空间的大小</span><br><span class="line">如果你的数据元素是int类型</span><br><span class="line">那么它所占大小就应该是四个字节</span><br><span class="line">然后第二个部分</span><br><span class="line">他要* InitSize 指的是</span><br><span class="line">这个顺序表他刚开始初始的长度</span><br><span class="line">那在这</span><br><span class="line">我们把它定义为</span><br><span class="line">一个常量是10</span><br><span class="line">那这个式子得到的结果就是</span><br><span class="line">你的int型变量所需要的存储空间大小</span><br><span class="line">那这就是malloc函数</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13898528964/0.png" alt="顺序表的实现"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">用上图的代码看一下这个顺序表的动态分配</span><br><span class="line">在背后发生了一些什么事情</span><br><span class="line">这个顺序表的数据元素类型是int类型</span><br><span class="line">那data这个指针</span><br><span class="line">指向了顺序表当中的第一个数据元素</span><br><span class="line">然后我们实现了一个函数InitList</span><br><span class="line">用于初始化一个动态分配方式实现的顺序表</span><br><span class="line">然后再实现一个函数</span><br><span class="line">用于动态的增加这个顺序表的长度</span><br><span class="line">然后我们在main函数里调用这些相关的操作</span><br><span class="line">需要注意的是InitList这里面使用到了malloc函数</span><br><span class="line">然后增加动态数组的长度</span><br><span class="line">或者说增加顺序表的长度</span><br><span class="line">这个函数里边又使用到了malloc和free</span><br><span class="line">这两个函数</span><br><span class="line">malloc和free包含在了这个头文件当中</span><br><span class="line">所以如果大家自己写代码</span><br><span class="line">需要使用到malloc和free这两个函数的话</span><br><span class="line">需要include这个头文件</span><br><span class="line">那接下来 </span><br><span class="line">来分析一下这段代码运行的过程</span><br><span class="line">首先</span><br><span class="line">在main函数里声明一个顺序表</span><br><span class="line">执行完这一句代码之后</span><br><span class="line">其实计算机会在内存当中开辟这样的一小片空间</span><br><span class="line">这片存储空间存放了这个顺序表当中的这几个变量</span><br><span class="line">maxsize表示的是顺序表的最大容量</span><br><span class="line">然后length表示的是当前这个顺序表当中有几个数据元素</span><br><span class="line">而data它是一个指针类型的变量</span><br><span class="line">接下来会执行我们定义的这个基本操作</span><br><span class="line">也就是初始化顺序表</span><br><span class="line">在这个函数的第一句</span><br><span class="line">会调用malloc函数</span><br><span class="line">malloc函数会申请一整片连续的存储空间</span><br><span class="line">这片存储空间的大小应该是</span><br><span class="line">能够存的下10个int类型数据的这样的一个大小</span><br><span class="line">接下来malloc函数会返回一个指针</span><br><span class="line">我们把这个指针的类型把它转换成和这儿相统一的指针类型</span><br><span class="line">然后把malloc返回的这些指针的值</span><br><span class="line">把他赋给data</span><br><span class="line">之前我们说过</span><br><span class="line">malloc返回的是这一整片连续存储空间的起始地址</span><br><span class="line">所以在执行完这句代码之后</span><br><span class="line">data这个指针</span><br><span class="line">应该是指向了这个位置</span><br><span class="line">再次强调</span><br><span class="line">需要把malloc返回的指针把他</span><br><span class="line">转换成</span><br><span class="line">我们这定义的同类型的指针</span><br><span class="line">除了data之外</span><br><span class="line">我们还需要把顺序表的当前长度length</span><br><span class="line">设为0</span><br><span class="line">然后把顺序表的最大容量</span><br><span class="line">把它设置为这个初始值</span><br><span class="line">和这个地方保持一致</span><br><span class="line">好 那接下来我们省略了一些代码</span><br><span class="line">可以往这个顺序表中插入数据</span><br><span class="line">把它都给填满</span><br><span class="line">那此时length的值</span><br><span class="line">就应该是10</span><br><span class="line">MaxSize的值</span><br><span class="line">也应该是10</span><br><span class="line">再往后如果还想存入一些数据的话</span><br><span class="line">这个顺序表的大小是不是就不够了</span><br><span class="line">所以在这个地方我们实现了一个函数动态的</span><br><span class="line">增加这个数组的长度</span><br><span class="line">或者增加这个顺序表的长度</span><br><span class="line">那这儿有个参数len</span><br><span class="line">这个参数表示的是我需要拓展多少的长度</span><br><span class="line">那我们这传入5</span><br><span class="line">也就说想要让这个顺序表可以再多存5个元素</span><br><span class="line">第一句我们定义了一个指针P</span><br><span class="line">把顺序表的data指针的值赋给了这个p</span><br><span class="line">也就是说p和data是指向了同一个位置</span><br><span class="line">接下来要调用malloc函数</span><br><span class="line">malloc函数所做的事情是申请一整片的内存空间</span><br><span class="line">这片空间的大小</span><br><span class="line">应该能够存的下当前的所有的这些</span><br><span class="line">数据元素</span><br><span class="line">同时还可以再多存五个新的数据元素</span><br><span class="line">当然 这还需要乘以每一个数据元素的大小</span><br><span class="line">sizeOf(Elem Type)也就是需要</span><br><span class="line">使用sizeOf这个关键字</span><br><span class="line">这样的话就意味着开辟了一片新的空间</span><br><span class="line">这片空间可以存15个元素</span><br><span class="line">以前只能存10个</span><br><span class="line">现在可以多存5个</span><br><span class="line">由于malloc</span><br><span class="line">他申请的内存空间是另一片</span><br><span class="line">内存空间</span><br><span class="line">而这篇内存空间此时并没没有往里面存任何数据</span><br><span class="line">接下来</span><br><span class="line">我们让data这个指针</span><br><span class="line">指向新的这一片空间</span><br><span class="line">然后再用for循环</span><br><span class="line">把以前p指向的内存空间的这些数据的值</span><br><span class="line">把他挪过来给</span><br><span class="line">然后由于顺序表的最大容量增加了这么多</span><br><span class="line">所以我们需要 </span><br><span class="line">把Maxsize的值把它加五</span><br><span class="line">也就是变成了15</span><br><span class="line">最后要做的一件事情就是调用free函数</span><br><span class="line">free函数会把P这个指针所指向的这一整片</span><br><span class="line">的存储空间给释放掉</span><br><span class="line">把它归还给系统 </span><br></pre></td></tr></table></figure>
+
+<h1 id="顺序表的特点"><a href="#顺序表的特点" class="headerlink" title="顺序表的特点"></a>顺序表的特点</h1><p><img src="https://inews.gtimg.com/newsapp_ls/0/13900890579/0.png" alt="顺序表的特点"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">顺序表的特点:</span><br><span class="line">1.随机访问，也就说可以在常数级的时间复杂度内就可以找到第i个元素。原因就在于，顺序表当中各个数据元素的存放位置是连续存放的，因此只需要知道第一个数据元素的存放地址，那么后面这些数据元素的存放地址就可以马上算出来，所以可以在常数级的时间内找到第i个元素。那对应的代码其实就是我们用数组，然后给一个数组下标就可以直接找到第i个元素，其实在系统在背后还做了计算地址等等这一系列的操作。</span><br><span class="line">2.顺序表的第二个特点是存储密度高，每个存储节点只存储数据元素本身，但如果我们采用链式存储的话，除了存储数据元素本身之外，还需要耗费一定的存储空间来存放指针这样的信息。</span><br><span class="line">3.第三个特点是拓展容量不方便。静态分配这种方式直接就是不可以扩展容量，而动态分配这种方式虽然可以拓展容量。但是由于我们需要把数据复制到新的区域，所以其实时间复杂度也比较高</span><br><span class="line">4.第四个特点是插入、删除操作不方便，需要移动大量的元素，那这个特性我们会在下个小节当中结合具体的代码。</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><img src="https://inews.gtimg.com/newsapp_ls/0/13900921004/0.png" alt="总结"></p>
+
+      
+    </div>
+    
+    
+    
+    <div>
+       
+       <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+       
+    </div>
+
+    
+
+    
+
+    
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" rel="tag"># 数据结构和算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/08/15/ch2.1-%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" rel="next" title="“ch2.2-线性表的定义和基本操作”">
+                <i class="fa fa-chevron-left"></i> “ch2.2-线性表的定义和基本操作”
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/08/23/ch2.3-%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9CC%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/" rel="prev" title="2.3-顺序表的基本操作C语言实现">
+                2.3-顺序表的基本操作C语言实现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC81Mjg0NS8yOTMyMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <!--<a href="/archives%7C%7C%20archive"> -->
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Ze1Sure" target="_blank" title="GitHub">
+                      GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E6%80%BB%E8%A7%88"><span class="nav-number">1.</span> <span class="nav-text">知识总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">顺序表的定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E6%98%AF%E5%AE%9E%E7%8E%B0%E2%80%93%E9%9D%99%E6%80%81%E5%88%86%E9%85%8D"><span class="nav-number">3.</span> <span class="nav-text">顺序表的是实现–静态分配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%98%E6%BB%A1%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E"><span class="nav-number">4.</span> <span class="nav-text">存满了怎么办</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E2%80%93%E5%8A%A8%E6%80%81%E5%88%86%E9%85%8D"><span class="nav-number">5.</span> <span class="nav-text">顺序表的实现–动态分配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">6.</span> <span class="nav-text">顺序表的特点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ABCze1Sure</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">55k</span>
+  
+</div>
+  <!--
+   
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+-->
+        
+<div class="busuanzi-count">
+   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("J5d8aXYNXkoBqPzejrONXv8M-gzGzoHsz", "cGeeHc9xfN5JwRQgg21bCSBE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

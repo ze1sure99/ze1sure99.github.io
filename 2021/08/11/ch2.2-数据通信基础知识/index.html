@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计网," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="数据通信基础知识1.典型的数据通信模型 12345678910111213141516171819202122232425假如我们是拨号上网那我们的电脑就会通过这个公用电话网把我们要传的数据经过一系列的过程然后传给另一个端系统假如说我现在打开了qq要发送一段消息在吗？在干嘛？多喝热水那这一段消息呢是以文字的形式存在的那这种消息是我们人能理解的那么机器呢就要把它转化成机器所能理解的形式也就是转换成数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ch2.2-数据通信基础知识">
+<meta property="og:url" content="http://yoursite.com/2021/08/11/ch2.2-%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="ze1Sure">
+<meta property="og:description" content="数据通信基础知识1.典型的数据通信模型 12345678910111213141516171819202122232425假如我们是拨号上网那我们的电脑就会通过这个公用电话网把我们要传的数据经过一系列的过程然后传给另一个端系统假如说我现在打开了qq要发送一段消息在吗？在干嘛？多喝热水那这一段消息呢是以文字的形式存在的那这种消息是我们人能理解的那么机器呢就要把它转化成机器所能理解的形式也就是转换成数">
+<meta property="og:locale">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13874707314/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13874902021/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13874930664/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13874971874/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13875012993/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13875131625/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13875223362/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13875347695/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13875353019/0.png">
+<meta property="og:image" content="https://files.catbox.moe/0iyn28.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13981666419/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13981727228/0.png">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13981807672/0.png">
+<meta property="article:published_time" content="2021-08-11T07:50:11.000Z">
+<meta property="article:modified_time" content="2021-09-29T09:47:00.666Z">
+<meta property="article:author" content="ABCze1Sure">
+<meta property="article:tag" content="计网">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://inews.gtimg.com/newsapp_ls/0/13874707314/0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/08/11/ch2.2-数据通信基础知识/"/>
+
+
+
+
+
+  <title>ch2.2-数据通信基础知识 | ze1Sure</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/Ze1Sure" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+      <div class="site-meta-headline">
+        <a>
+          <img class="custom-logo-image" src="https://files.catbox.moe/ofn4fy.png"
+               alt="ze1Sure"/>
+        </a>
+      </div>
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ze1Sure</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">朝闻道 夕可眠矣</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/11/ch2.2-%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ze1Sure">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ch2.2-数据通信基础知识</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-11T15:50:11+08:00">
+                2021-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%BD%91/" itemprop="url" rel="index">
+                    <span itemprop="name">计网</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/08/11/ch2.2-%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="leancloud_visitors" data-flag-title="ch2.2-数据通信基础知识">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  6.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  22
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="数据通信基础知识"><a href="#数据通信基础知识" class="headerlink" title="数据通信基础知识"></a>数据通信基础知识</h1><h2 id="1-典型的数据通信模型"><a href="#1-典型的数据通信模型" class="headerlink" title="1.典型的数据通信模型"></a>1.典型的数据通信模型</h2><p><img src="https://inews.gtimg.com/newsapp_ls/0/13874707314/0.png" alt="典型的数据通信的一些相关数据"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">假如我们是拨号上网</span><br><span class="line">那我们的电脑就会通过这个公用电话网</span><br><span class="line">把我们要传的数据经过一系列的过程</span><br><span class="line">然后传给另一个端系统</span><br><span class="line">假如说我现在打开了qq</span><br><span class="line">要发送一段消息</span><br><span class="line">在吗？</span><br><span class="line">在干嘛？</span><br><span class="line">多喝热水</span><br><span class="line">那这一段消息呢</span><br><span class="line">是以文字的形式存在的</span><br><span class="line">那这种消息是我们人能理解的</span><br><span class="line">那么机器呢</span><br><span class="line">就要把它转化成机器所能理解的形式</span><br><span class="line">也就是转换成数据</span><br><span class="line">那数据data呢</span><br><span class="line">其实就是一系列0&#x2F;1的组合</span><br><span class="line">那么计算机网卡</span><br><span class="line">他所发出的这些数据</span><br><span class="line">在这个信号上</span><br><span class="line">或者说在电信号上面</span><br><span class="line">的表现</span><br><span class="line">就叫做数字信号</span><br><span class="line">那接下来</span><br><span class="line">要经过一个调制解调器</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">那这个调制解调器是什么作用呢</span><br><span class="line">他其实是把数字信号调制成了这个模拟信号</span><br><span class="line">为什么要调制成模拟信号</span><br><span class="line">因为在我们这个例子当中啊</span><br><span class="line">这个数据啊</span><br><span class="line">它是要经过公用电话网的</span><br><span class="line">那这是一个广域网</span><br><span class="line">在广域网当中呢</span><br><span class="line">就有很多条模拟信道</span><br><span class="line">那这些模拟信道是什么意思呢</span><br><span class="line">模拟信道</span><br><span class="line">它就是能传模拟信号</span><br><span class="line">但是不能传数字信号的信道</span><br><span class="line">所以我们就需要把这个数字信号</span><br><span class="line">转换成模拟信号才能够传过去</span><br><span class="line">那么到这边呢</span><br><span class="line">就要再经过这样一个调制解调器</span><br><span class="line">也就是一个逆过程</span><br><span class="line">把模拟信号再转换成原来的数字信号</span><br><span class="line">也就形成了计算机他所能理解的一个数据的形式</span><br><span class="line">也就是01010比特流的形式</span><br><span class="line">接下来呢</span><br><span class="line">计算机内部的一些操作</span><br><span class="line">再把这些0101的这个数字比特流的形式</span><br><span class="line">转换成我们人类所能理解的这种文字的形式</span><br><span class="line">转换成</span><br><span class="line">在吗</span><br><span class="line">在干嘛</span><br><span class="line">多喝热水</span><br><span class="line">那至于把01010比特流转换成这些文字形式</span><br><span class="line">这些我们能看懂的文字形式过程呢</span><br><span class="line">其实就是物理层以上几层</span><br><span class="line">所进行处理的过程</span><br><span class="line">那在这里面我不用做具体的展开</span><br><span class="line">大家只需要了解数据</span><br><span class="line">从计算机网卡当中发出来</span><br><span class="line">变成数字信号</span><br><span class="line">再经过调制解调器</span><br><span class="line">调成模拟信号</span><br><span class="line">模拟信号已放到广域网上面的</span><br><span class="line">模拟信道上面进行传输</span><br><span class="line">接下来</span><br><span class="line">再由调制解调器</span><br><span class="line">解调成数字信号</span><br><span class="line">最后这个数据</span><br><span class="line">才展现在我们的眼前</span><br><span class="line">那以上的每一个部分呢</span><br><span class="line">都有他所对应的数据通信当中的专业名词</span><br><span class="line">比如说</span><br><span class="line">输入端</span><br><span class="line">我们就可以叫做信源</span><br><span class="line">信源</span><br><span class="line">就是信息的来源</span><br><span class="line">那接下来我们这个输入的数据</span><br><span class="line">就会发到这个发送器</span><br><span class="line">这里面的调试解调器呢</span><br><span class="line">就可以作为发送器</span><br><span class="line">接收端的调试解调器呢</span><br><span class="line">我们就叫他做接收器</span><br><span class="line">那中间所要经过的这样一个公用电话网</span><br><span class="line">就叫做一个传输系统</span><br><span class="line">同时呢</span><br><span class="line">我们还会把这些部分再分一下</span><br><span class="line">像信源加上发送器</span><br><span class="line">这一块呢</span><br><span class="line">我们就称它为源系统</span><br><span class="line">中间这一块呢</span><br><span class="line">就叫做传输系统</span><br><span class="line">最后这一块呢</span><br><span class="line">就叫做目的系统</span><br><span class="line">那只一部分的名词</span><br><span class="line">大家有一个了解</span><br><span class="line">对应上了就ok了</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-数据通信的相关术语"><a href="#2-数据通信的相关术语" class="headerlink" title="2.数据通信的相关术语"></a>2.数据通信的相关术语</h2><p><img src="https://inews.gtimg.com/newsapp_ls/0/13874902021/0.png" alt="数据通信的相关术语"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">通信的目的是传送消息（消息：语音、文字、图像、视频等）</span><br><span class="line">不管我们是打电话或者是发微信</span><br><span class="line">发 qq还是写信</span><br><span class="line">飞鸽传输</span><br><span class="line">这些都可以叫做通信</span><br><span class="line">数据data呢</span><br><span class="line">它是指传送信息的实体</span><br><span class="line">通常是有意义的符号序列</span><br><span class="line">那在刚才的这个通信系统当中呢</span><br><span class="line">我们的数据data其实就是0101这些二进制数的序列</span><br><span class="line">因此呢</span><br><span class="line">我们就可以说</span><br><span class="line">数据通信是指在不同计算机之间传输表示信息的</span><br><span class="line">二进制数01序列的过程</span><br><span class="line">其实就是在说数据通信</span><br><span class="line">它归根结底就是在传输这些</span><br><span class="line">二进制数的序列</span><br><span class="line">那这些二进制数</span><br><span class="line">如何漂洋过海去找到它的接收端呢</span><br><span class="line">就需要把这些二进制数转换成信号</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">那接下来这些二进制数如何飘扬过海去找它的接收端呢</span><br><span class="line">就需要把这些二进制数转换成信号</span><br><span class="line">信号呢</span><br><span class="line">就是数据的电气或者电磁的表现</span><br><span class="line">是数据在传输过程当中的存在形式</span><br><span class="line">那主要有两种存在形式</span><br><span class="line">一个是数字信号</span><br><span class="line">另一个呢</span><br><span class="line">就是模拟信号</span><br><span class="line">那数字信号也称之为离散信号</span><br><span class="line">它代表消息的参数的取值是离散的</span><br><span class="line">模拟信号呢</span><br><span class="line">又称之为连续信号</span><br><span class="line">它代表消息的参数取值是连续的</span><br><span class="line">模拟信号的图像是这样的</span><br><span class="line">离散就是跳跃的</span><br><span class="line">那连续呢</span><br><span class="line">就是这样可以连续不断的</span><br><span class="line">并没有明显性跳跃的图像</span><br><span class="line">大家也可以尝试着用导数的知识</span><br><span class="line">再来理解一下这两种形式</span><br><span class="line">消息 数据 和 信号</span><br><span class="line">在一起和刚才的例子是不是同学们都很清楚了</span><br><span class="line">在刚才的例子当中</span><br><span class="line">我们传送的消息</span><br><span class="line">指的就是在吗</span><br><span class="line">在干嘛</span><br><span class="line">多喝热水</span><br><span class="line">那这个数据啊</span><br><span class="line">其实就是计算机</span><br><span class="line">他把消息翻译成了计算机所能理解的语言</span><br><span class="line">也就是二进制数的01序列</span><br><span class="line">那接下来这个数据呢</span><br><span class="line">放到链路上面</span><br><span class="line">或者说放到信道上传输的时候</span><br><span class="line">就要以信号的形式存在</span><br><span class="line">至于它应该是一以数字信号</span><br><span class="line">还是模拟信号的形式存在呢</span><br><span class="line">这个要取决于这个信道</span><br><span class="line">它是什么样的</span><br><span class="line">如果这是一个模拟信道</span><br><span class="line">那它只能允许模拟性和通过</span><br><span class="line">如果这是一个数字信道</span><br><span class="line">那它就可以使数字信号通过</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">接下来我们再看这个概念</span><br><span class="line">就是信源</span><br><span class="line">信源是产生和发送数据的源头</span><br><span class="line">信宿呢就是接收数据的终点</span><br><span class="line">信道呢</span><br><span class="line">指的是信号的传输媒介</span><br><span class="line">一般用来表示向某一个方向传送信息的介质</span><br><span class="line">因此一条通信线路往往包含一条发送信道和一条接收信道</span><br><span class="line">其实这句话的意思就是在告诉我们</span><br><span class="line">信道它是有方向性的</span><br><span class="line">如果我给你发送数据</span><br><span class="line">我往你的方向就会有一个信道</span><br><span class="line">那如果你往我这发送数据</span><br><span class="line">你往我这个方向就会</span><br><span class="line">有一个发送信道</span><br><span class="line">当然 这条你的发送信道呢</span><br><span class="line">也同时是我的接收信道</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">信道还会有一些具体的划分：</span><br><span class="line">按照传输信号来分呢</span><br><span class="line">我们可以分成模拟信道和数字信道</span><br><span class="line">按照传输介质来分呢</span><br><span class="line">我们可以分为无线信道和有线信道</span><br><span class="line">也就是我们在之前物理层开篇的时候所想到的</span><br><span class="line">无线信道呢</span><br><span class="line">可以理解为看不到</span><br><span class="line">摸不着的</span><br><span class="line">非导向型的传输信道</span><br><span class="line">比如说微波通信</span><br><span class="line">卫星通信等等</span><br><span class="line">那这个有限信道呢</span><br><span class="line">就是我们看得到</span><br><span class="line">摸得着的</span><br><span class="line">比如说我们用的网线</span><br><span class="line">用的光纤</span><br><span class="line">用着同轴电缆这些</span><br><span class="line">它们里面啊</span><br><span class="line">它们里面的信号</span><br><span class="line">传输媒介都称之为有线信道</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-设计数据通信系统要考虑的3个问题"><a href="#3-设计数据通信系统要考虑的3个问题" class="headerlink" title="3.设计数据通信系统要考虑的3个问题"></a>3.设计数据通信系统要考虑的3个问题</h2><p><img src="https://inews.gtimg.com/newsapp_ls/0/13874930664/0.png" alt="设计数据通信系统要考虑的3个问题"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.采用单工通信&#x2F;半双工&#x2F;全双工通信方式？</span><br><span class="line">2.采用串行通信&#x2F;并行通信方式？</span><br><span class="line">3.采用同步通信&#x2F;异步通信方式？</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-1三种通信方式"><a href="#3-1三种通信方式" class="headerlink" title="3.1三种通信方式"></a>3.1三种通信方式</h3><p><img src="https://inews.gtimg.com/newsapp_ls/0/13874971874/0.png" alt="三种通信方式"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">人与人之间通信</span><br><span class="line">或者说人与人之间交流</span><br><span class="line">有几种方式呢</span><br><span class="line">1.第一种方式就是你说我听着 比如说我们在做讲座的时候只有这个老师或这个教授 </span><br><span class="line">他在讲话我们在下面是不说话的</span><br><span class="line">只有一个人在讲 我们呢 是沉默的大多数</span><br><span class="line">2.那第二种呢 就是两个人面对面的交流 你说一句 我说一句</span><br><span class="line">和刚才这种交流方式呢</span><br><span class="line">就显得更加平等了一些</span><br><span class="line">两个人呢</span><br><span class="line">都是表达者也都是聆听者</span><br><span class="line">只不过它们表达的时间是错开的</span><br><span class="line">3.第三种方式呢 就是两个人一起说</span><br><span class="line">一起说（对撕）通常出现在两个人对撕的情况</span><br><span class="line">那么对应到数据通信过程当中呢</span><br><span class="line">其实也是有这种类似的三种通信方式</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1.从通信双 只有一个方向的通信而没有反方向的交互，仅需要（一条）信道</span><br><span class="line">也就是你说我听着</span><br><span class="line">那类比生活当中的例子呢</span><br><span class="line">就是主播</span><br><span class="line">只有主播在说话</span><br><span class="line">我们呢</span><br><span class="line">只是处于一个聆听者的状态</span><br><span class="line">2.半双工通信&#x2F;双向交替通信方式</span><br><span class="line">通信的双方都可以发送或接受消息，但任何一方都不能同时发送和接收</span><br><span class="line">需要（两条）信道</span><br><span class="line">常见的例子呢</span><br><span class="line">就是这个对讲机了</span><br><span class="line">两个人在使用对讲机说话的时候呢</span><br><span class="line">同一时间只能有一个人在讲话</span><br><span class="line">另一个人在听着</span><br><span class="line">但是你说完</span><br><span class="line">我就可以继续说了</span><br><span class="line">3.全双工通信&#x2F;双向同时通信</span><br><span class="line">通信双方可以同时发送和接收信息，也需要（两条）信道</span><br><span class="line">类比于两个人在打电话</span><br><span class="line">两个人都可以说话</span><br><span class="line">都可以同时的发送信息</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13875012993/0.png" alt="三种通信方式"></p>
+<h3 id="3-2串行传输-amp-并行传输"><a href="#3-2串行传输-amp-并行传输" class="headerlink" title="3.2串行传输&amp;并行传输"></a>3.2串行传输&amp;并行传输</h3><p><img src="https://inews.gtimg.com/newsapp_ls/0/13875131625/0.png" alt="选择串行还是并行"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">串行传输和并行传输</span><br><span class="line">1.串行传输指的是一个字符的八位二进制数按</span><br><span class="line">由低位到高位的顺序依次发送</span><br><span class="line">这个一个字符就是character</span><br><span class="line">那这个字节它是有八位的</span><br><span class="line">也就是有一个字节的长度</span><br><span class="line">也就是这样的</span><br><span class="line">逐个比特的发送就叫做串行传输</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">并行传输：</span><br><span class="line">并行传输指得是将表示一个字符的8位二进制数同时同时通过8条信道发送</span><br><span class="line">结合这个图示呢</span><br><span class="line">就是发送方有八条信道同时发送每一个比特</span><br><span class="line">也就是把一个字符</span><br><span class="line">刷的一下</span><br><span class="line">通过八条信道发送给了接收方</span><br><span class="line">结合生活当中的例子</span><br><span class="line">我们可以想象一下</span><br><span class="line">假如说呢</span><br><span class="line">我现在有一个面包店</span><br><span class="line">我做了一个面包</span><br><span class="line">这个面包</span><br><span class="line">我会给他切成8片</span><br><span class="line">想处理这8片面包有两种方式</span><br><span class="line">一种呢</span><br><span class="line">就是找一个人</span><br><span class="line">他一片接着一片的把这八片面包吃完</span><br><span class="line">也就是这种串行传输的方式</span><br><span class="line">另一个方式呢</span><br><span class="line">就是找八个人</span><br><span class="line">他们一人拿一片</span><br><span class="line">一起把它吃完</span><br><span class="line">那这个就是并行传输的方式</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">如何筛选串行传输和并行传输：</span><br><span class="line">采用串行传输 我们只需要一条信道</span><br><span class="line">采用并行传输 我们需要八个信道</span><br><span class="line">那么这个耗费会比较高</span><br><span class="line">因此</span><br><span class="line">对于远距离的方式</span><br><span class="line">我们通常采用串行传输</span><br><span class="line">近距离的传输方式</span><br><span class="line">我们通常使用并行传输</span><br><span class="line">在计算机内部的数据传输</span><br><span class="line">就是采用的并行传输</span><br><span class="line">在集成电路芯片的内部</span><br><span class="line">我们采用的就是并行传输了</span><br><span class="line">同一个插线板上各个部件之间</span><br><span class="line">以及在同一个机箱内</span><br><span class="line">很多这个插件板之间的数据传输</span><br><span class="line">都是采用这种并行的传输方式</span><br><span class="line">同样对于这个打印机</span><br><span class="line">打印机和电脑的这个连接呢</span><br><span class="line">我们也可以看到有这样一个口</span><br><span class="line">那这个口叫做并口</span><br><span class="line">并口就是实现并行传输的这个接口</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3同步传输还是异步传输"><a href="#3-3同步传输还是异步传输" class="headerlink" title="3.3同步传输还是异步传输"></a>3.3同步传输还是异步传输</h3><p><img src="https://inews.gtimg.com/newsapp_ls/0/13875223362/0.png" alt="同步传输"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">同步传输又称为区块传输</span><br><span class="line">在传送数据的时候呢</span><br><span class="line">需要先送出一个或多个同步字符</span><br><span class="line">再送出整批的数据</span><br><span class="line">结合这个图示</span><br><span class="line">我们来看一下</span><br><span class="line">如果我要传送的数据字符呢</span><br><span class="line">有这四个字节</span><br><span class="line">他们就是一个（数据区块）</span><br><span class="line">那我要传送这一个数据区块</span><br><span class="line">首先我就要放置一个或者多个同步字符</span><br><span class="line">在发送端的时候</span><br><span class="line">就要添加上这个同步字符</span><br><span class="line">那么接收端在接收的时候呢</span><br><span class="line">发现了这几个同步字符之后</span><br><span class="line">就可以准备接收了</span><br><span class="line">也就是实现了一个发送方和接收方的时钟同步</span><br><span class="line">这个呢</span><br><span class="line">就好比在跳舞的时候</span><br><span class="line">老师会先说5678</span><br><span class="line">相当于调整一下你和我之间的这个时钟</span><br><span class="line">我们要保持节奏上的一致和同步</span><br><span class="line">我才能跟上老师跳舞的这个节奏</span><br><span class="line">也就是老师跳了一个什么动作</span><br><span class="line">我就能跟上什么一个动作</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13875347695/0.png" alt="异步传输"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">异步传输和同步传输的主要区别</span><br><span class="line">同步传输实现同步是要加字符的</span><br><span class="line">加同步字符的</span><br><span class="line">而异步传输要实现同步呢</span><br><span class="line">是要加字符起始位和字符终止位</span><br><span class="line">为什么异步传输也是为了实现同步呢</span><br><span class="line">首先我们都公认的一点就是计算机的通信过程</span><br><span class="line">和我们打电话</span><br><span class="line">是很相似的</span><br><span class="line">那人们在打电话的时候</span><br><span class="line">拨通电话之后确认身份之后</span><br><span class="line">两个人就进入了通话状态</span><br><span class="line">那在通话过程当中呢</span><br><span class="line">说话的人</span><br><span class="line">要说清每个字</span><br><span class="line">而且每说完一句话都要停顿一下</span><br><span class="line">那么对方呢</span><br><span class="line">也要适应这个说话人的语速</span><br><span class="line">听清对方所讲的每一个字</span><br><span class="line">然后根据这个说话人的语气和停顿来判断</span><br><span class="line">下一句什么时候开始</span><br><span class="line">什么时候结束</span><br><span class="line">这样才可以听得懂 </span><br><span class="line">那这是人们在说话的时候</span><br><span class="line">在打电话时候需要实现的一个同步问题</span><br><span class="line">那么计算机在通信过程中</span><br><span class="line">也是同理</span><br><span class="line">他也要实现同步问题</span><br><span class="line">很主要的一个同步问题呢</span><br><span class="line">就是要实现字符同步</span><br><span class="line">那在字符同步下实现字符同步的方法也就是这两种了</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">异步传输是怎么操作的：</span><br><span class="line">他和同步传输的区别就是在于</span><br><span class="line">在发送端他并不是连续的发送这几个字节的</span><br><span class="line">而他可能是隔一会</span><br><span class="line">就发一个字节</span><br><span class="line">心情好了</span><br><span class="line">发一个字节那就有断断续续的发送字节</span><br><span class="line">比如说</span><br><span class="line">我们再把这个字节3拿出来</span><br><span class="line">这个字节3呢</span><br><span class="line">它是1字节</span><br><span class="line">也就是8比特</span><br><span class="line">自低位向高位分别是b0-b7</span><br><span class="line">那在发送端发送数据的时候</span><br><span class="line">它会进行一个操作来实现同步</span><br><span class="line">也就是加上一个终止位和一个起始位</span><br><span class="line">那这个起始位和终止位默认为0&#x2F;1</span><br><span class="line">当然反过来也是可以的</span><br><span class="line">那异步传输的过程我们可以这样理解一下</span><br><span class="line">每次异步传输这个信息呢</span><br><span class="line">都会以这样一个起始位开头</span><br><span class="line">那这个起始位到达接收端的时候</span><br><span class="line">接收端他就知道</span><br><span class="line">数据已经到达了</span><br><span class="line">那接收端在接收这个起始位的</span><br><span class="line">这样一个过程呢</span><br><span class="line">其实就给了接收方响应接收和缓存数据比特的时间</span><br><span class="line">那么接下来就可以接收这几个</span><br><span class="line">这8个比特了</span><br><span class="line">那接收完这8个比特之后呢</span><br><span class="line">他又会收到一个停止位</span><br><span class="line">那这一个停止位表示的就是这一次传输信息的终止</span><br><span class="line">那如果我们让终止位为1</span><br><span class="line">起始位为0的话</span><br><span class="line">也就是说</span><br><span class="line">在刚开始的时候</span><br><span class="line">这个电平如果一下变到0了</span><br><span class="line">接收方就知道</span><br><span class="line">我可以开始接收数据了</span><br><span class="line">那么接收完这8个比特之后呢</span><br><span class="line">他就会收到一个终止位</span><br><span class="line">那这个终止位我们说是1</span><br><span class="line">也就是收到了一个1的电平</span><br><span class="line">也就是一个高电平</span><br><span class="line">那他收到这样一个高电平之后呢</span><br><span class="line">就继续保持这个高电平</span><br><span class="line">直至又发来了一个新的起始位</span><br><span class="line">为0</span><br><span class="line">0所对应的低电平</span><br><span class="line">他才知道啊</span><br><span class="line">这个电平的跳变</span><br><span class="line">就告诉我</span><br><span class="line">我应该开始接收下一个新的字节了</span><br><span class="line">那这就是异步传输的一个过程</span><br><span class="line">那异步传输的一个常见例子呢</span><br><span class="line">就是在键盘上敲数字</span><br><span class="line">因为我们不知道什么时候大家心情好了</span><br><span class="line">就按了一个键</span><br><span class="line">计算机对这样一个操作进行处理的过程呢</span><br><span class="line">其实就是异步传输</span><br></pre></td></tr></table></figure>
+
+<h3 id="脑图时刻"><a href="#脑图时刻" class="headerlink" title="脑图时刻"></a>脑图时刻</h3><p><img src="https://inews.gtimg.com/newsapp_ls/0/13875353019/0.png" alt="脑图时刻"></p>
+<h2 id="4-码元"><a href="#4-码元" class="headerlink" title="4.码元"></a>4.码元</h2><p><img src="https://files.catbox.moe/0iyn28.png" alt="码元"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line">现在有两台主机a和b</span><br><span class="line">中间的就是他们的一个链路</span><br><span class="line">把复杂的网络情况都暂时忽略掉</span><br><span class="line">只用这样一条链路将这两个主机连接起来</span><br><span class="line">现在主机a呢 它产生了一些数据要发送给b</span><br><span class="line">数据呢 在上节课中讲过</span><br><span class="line">就是一系列01的这样二进制数的序列组合</span><br><span class="line">那如果要把它放到链路上面传输</span><br><span class="line">就一定要把这个数据转换成信号的形式</span><br><span class="line">也就是转换成数字信号的形式</span><br><span class="line">1对应的就是高电平信号</span><br><span class="line">0对应的就是低电平</span><br><span class="line">那a开始发送数据</span><br><span class="line">首先呢</span><br><span class="line">他把第一个比特</span><br><span class="line">把1发到了链路上面</span><br><span class="line">那在这个链路上面</span><br><span class="line">它显示的电信号就是一个高电平的信号</span><br><span class="line">接下来</span><br><span class="line">他发送第二个比特0</span><br><span class="line">那这个时候呢</span><br><span class="line">第二个比特在链路上面</span><br><span class="line">表示的信号形式就是一个低电平的信号</span><br><span class="line">以此类推</span><br><span class="line">把所有的这些数据</span><br><span class="line">全部放在链路上面进行传输</span><br><span class="line">那到了b这边呢</span><br><span class="line">b就要开始逐个比特的接收</span><br><span class="line">首先他会收到第一个</span><br><span class="line">他所看到的呢</span><br><span class="line">是一个高电平</span><br><span class="line">看到这个高电平</span><br><span class="line">他就知道高电平对应的是1</span><br><span class="line">那他就把这个高电平转换成1这样一个比特</span><br><span class="line">吸收或者说接收</span><br><span class="line">那接下来他就看到第二个电平是低电平</span><br><span class="line">还意识到</span><br><span class="line">这是一个0</span><br><span class="line">这是一个二进制数0</span><br><span class="line">那么就把这个0接收</span><br><span class="line">以此类推呢</span><br><span class="line">把剩下所有到来的这个信号</span><br><span class="line">全部转换成对应的这样一个数据形式并且接收</span><br><span class="line">那么在这个例子中</span><br><span class="line">什么是码元呢</span><br><span class="line">其实</span><br><span class="line">这每一小段</span><br><span class="line">它就是码元</span><br><span class="line">每一小段</span><br><span class="line">就是一个码元</span><br><span class="line">因此我们说码元</span><br><span class="line">他指的就是用一个固定时常的信号波形</span><br><span class="line">或者说数字脉冲来代表不同离散数值的基本波形</span><br><span class="line">是数字通信当中数字信号的计量单位</span><br><span class="line">这个时常内的信号呢</span><br><span class="line">就称之为k进制码元</span><br><span class="line">而该时常称为码元宽度</span><br><span class="line">这每一段呢 </span><br><span class="line">就是一个码元</span><br><span class="line">而这段的时间长度</span><br><span class="line">我们就称之为码元宽度</span><br><span class="line">那接下来就有一个几进制码元的说法</span><br><span class="line">当码元的离散状态有m个时</span><br><span class="line">这个码元就是m进制码元</span><br><span class="line">那我们看一下</span><br><span class="line">那我们看一下</span><br><span class="line">在这个里面</span><br><span class="line">他有几种离散状态呢</span><br><span class="line">很明显</span><br><span class="line">这里面的码元的离散状态</span><br><span class="line">也就是这里面所对应的这个信号波形的状态</span><br><span class="line">只有两种</span><br><span class="line">一低一高</span><br><span class="line">那么这个就叫做二进制码元</span><br><span class="line">那我们可以想一下</span><br><span class="line">如果这个波形</span><br><span class="line">它有四种</span><br><span class="line">四种高低不平的波形</span><br><span class="line">那这个是几进制码元呢</span><br><span class="line">当然它就是四进制码元了</span><br><span class="line">那这些不同进制的码元</span><br><span class="line">他们的区别是什么呢</span><br><span class="line">区别就在于他们所携带的</span><br><span class="line">这个比特信息量</span><br><span class="line">比如说</span><br><span class="line">在这种情况下</span><br><span class="line">在这个二进制编码二进制码元的时候</span><br><span class="line">我们看到只有两种不同的码元</span><br><span class="line">一个代表0状态 一个代表1状态</span><br><span class="line">所以在二进制编码当中的一个码元</span><br><span class="line">它包含的只有一个比特的信息量</span><br><span class="line">那么在四进制码元当中</span><br><span class="line">一个码元它可以携带</span><br><span class="line">多少个比特呢</span><br><span class="line">也就是我们来研究一下</span><br><span class="line">对于这样一个四进制码元</span><br><span class="line">他的一些相关信息</span><br><span class="line">四进制码元</span><br><span class="line">我们就知道码元的离散状态有四个</span><br><span class="line">或者说这种信号波形的表示有四种</span><br><span class="line">那我们接下来就要想了</span><br><span class="line">究竟我们要多少位</span><br><span class="line">或者说</span><br><span class="line">多少个比特才能够表示出来四个信号波形</span><br><span class="line">四个离散状态呢</span><br><span class="line">这个答案应该非常的简单</span><br><span class="line">也就是我们需要用两个比特就可以表示出</span><br><span class="line">四种状态</span><br><span class="line">所以四进制码元</span><br><span class="line">就可以携带两个比特的信息量</span><br><span class="line">如果是16进制码元</span><br><span class="line">码元的离散状态有16个</span><br><span class="line">因此呢</span><br><span class="line">对应着就应该有16种高低不同的信号波形</span><br><span class="line">应该有几位</span><br><span class="line">或者说几个比特才能够表示出16种状态来呢</span><br><span class="line">自然就是需要四个比特</span><br><span class="line">也就是4位的01序列</span><br><span class="line">能表示出16种高低不同的信号波形</span><br><span class="line">所以说这个16进制码元</span><br><span class="line">他一个码元可以携带的比特的信息量也就是4</span><br><span class="line">也就是他可以携带4比特</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-数字通信系统数据传输速率的两种表示方法"><a href="#5-数字通信系统数据传输速率的两种表示方法" class="headerlink" title="5.数字通信系统数据传输速率的两种表示方法"></a>5.数字通信系统数据传输速率的两种表示方法</h2><h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://inews.gtimg.com/newsapp_ls/0/13981666419/0.png"></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">即 信息传输速率 &#x3D; 码元传输速率 * 一个码元携带的比特量</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-1码元传输速率"><a href="#5-1码元传输速率" class="headerlink" title="5.1码元传输速率"></a>5.1码元传输速率</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">那这个数据传输速率呢</span><br><span class="line">其实就是数字通信系统当中的一个性能指标</span><br><span class="line">这个速率呢</span><br><span class="line">也叫做数据率</span><br><span class="line">指的是数据的传输速率</span><br><span class="line">表示的单位时间内</span><br><span class="line">传输的数据量</span><br><span class="line">可以使用两种表示方法</span><br><span class="line">一个是码元传输速率</span><br><span class="line">另一个就是信息传输速率</span><br><span class="line">什么叫做码元传输速率呢</span><br><span class="line">顾名思义</span><br><span class="line">他指的就是在单位时间内数字通信系统所传输的</span><br><span class="line">码元个数</span><br><span class="line">当然题目当中有的时候也会说脉冲个数</span><br><span class="line">或者说信号变化的次数等等</span><br><span class="line">那这里面要注意有一个坑啊</span><br><span class="line">就是如果</span><br><span class="line">这个信号</span><br><span class="line">就是有两个低电平</span><br><span class="line">他们俩是连续的</span><br><span class="line">那这个信号有没有变化呢</span><br><span class="line">也是有变化的</span><br><span class="line">因为他是从一个信号变到了另一个信号</span><br><span class="line">或者说从一个码元到了另一个码元</span><br><span class="line">这其实也是发生了变化</span><br><span class="line">也应该进入到这个信号变化次数当中</span><br><span class="line">以及脉冲个数当中</span><br><span class="line">那要注意的是码元传输速率的单位是什么</span><br><span class="line">是波特Baud大写B</span><br><span class="line">一个波特呢</span><br><span class="line">表示的就是数字通讯系统当中</span><br><span class="line">每秒可以传输一个码元</span><br><span class="line">所以说码元传输速率</span><br><span class="line">指的就是一秒可以传输多少个码元</span><br><span class="line">就是我们刚才所讲的</span><br><span class="line">有k进制码元</span><br><span class="line">但是码元速率呢是与进制数无关</span><br><span class="line">只与码元长度有关</span><br><span class="line">码元长度是什么呢</span><br><span class="line">就是我们刚才所讲的</span><br><span class="line">这一小条</span><br><span class="line">它所占的时长就是码元的长度</span><br><span class="line">或者说码元的宽度</span><br><span class="line">码元的速率与码元长度的关系呢</span><br><span class="line">就是这样的</span><br><span class="line">Rb&#x3D;1&#x2F;T</span><br><span class="line">码元的传输速率归根结底只和码元长度</span><br><span class="line">就是说跟这个码元</span><br><span class="line">一个码元所占的时常有关</span><br><span class="line">是与进制数无关的</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2信息传输速率"><a href="#5-2信息传输速率" class="headerlink" title="5.2信息传输速率"></a>5.2信息传输速率</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">表示数据传输速率的方法就是信息传输速率</span><br><span class="line">它也叫做信息速率</span><br><span class="line">比特率等等</span><br><span class="line">它表示的呢</span><br><span class="line">是单位时间内数字通信系统所传输的</span><br><span class="line">二进制码元个数</span><br><span class="line">或者说是比特数</span><br><span class="line">为什么我们可以用二进制码元个数</span><br><span class="line">来代替这个比特数</span><br><span class="line">因为在刚才的例子当中</span><br><span class="line">我们就看到了</span><br><span class="line">如果对应的是一个二进制码元的话</span><br><span class="line">他一个码元对应的就是一个比特</span><br><span class="line">包含着是一个比特的信息量</span><br><span class="line">所以二进制码元个数aka</span><br><span class="line">也就是说</span><br><span class="line">信息传输速率</span><br><span class="line">它指的是一秒可以传输多少个比特</span><br><span class="line">这两种表示方法</span><br><span class="line">它们之间有什么样的一个关系呢？</span><br><span class="line">如果一个码元</span><br><span class="line">他携带了n比特信息量</span><br><span class="line">则m波特的码元传输速率所对应的信息传输速率</span><br><span class="line">就是m*n比特每秒</span><br><span class="line">假如说在这样一个数字通讯系统当中</span><br><span class="line">它的码元传输速率是2波特</span><br><span class="line">也就是说1秒可以传输两个码元</span><br><span class="line">而同时又告诉你了</span><br><span class="line">这一个码元呢</span><br><span class="line">他携带的是两个比特的信息量</span><br><span class="line">在这个通讯系统当中</span><br><span class="line">信息传输速率</span><br><span class="line">或者说比特率应该是多少呢</span><br><span class="line">自然就是要用2*2也就是等于4比特每秒</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3两种传输速率的转换"><a href="#5-3两种传输速率的转换" class="headerlink" title="5.3两种传输速率的转换"></a>5.3两种传输速率的转换</h3><p><img src="https://inews.gtimg.com/newsapp_ls/0/13981727228/0.png" alt="信息传输速率"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">码元传输速率和进制数无关</span><br><span class="line">所以码元传输速率根据上面的公式 </span><br><span class="line">8000除以4 &#x3D; 2000</span><br><span class="line">因为四进制码元 携带了两个比特信息量  </span><br><span class="line">2个0或1可以表示四种状态</span><br><span class="line">十六进制码元携带了 4个比特信息量  4个0或1可以表示16种状态</span><br><span class="line">套用m*n得到上图结论</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13981807672/0.png" alt="码元"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">第一道题 给的是波特。也就是码元传输速率 是1600B </span><br><span class="line">转换成2进制也就是求信息传输速率</span><br><span class="line">八进制码元 可以携带 三个比特量  用0&#x2F;1表示有八种状态</span><br><span class="line">所以M &#x3D; 1600</span><br><span class="line">n &#x3D;3 </span><br><span class="line">信息传输速率 &#x3D;码元传输速率*一个码元携带的比特量&#x3D;1600 * 3 &#x3D; 4800 b&#x2F;s</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">第二道题</span><br><span class="line">单位是b&#x2F;s 给的是信息传输速率位2400b&#x2F;s</span><br><span class="line">求码元传输速率</span><br><span class="line">四进制码元可以携带 2个比特量 用0&#x2F;1表示有两种状态</span><br><span class="line">码元传输速率 &#x3D; 信息传输速率 &#x2F; 一个码元携带的比特量 &#x3D; 2400 &#x2F; 2 &#x3D; 1200 B</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+    <div>
+       
+       <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+       
+    </div>
+
+    
+
+    
+
+    
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E8%AE%A1%E7%BD%91/" rel="tag"># 计网</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/08/11/ch2.1-%E7%89%A9%E7%90%86%E5%B1%82%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" rel="next" title="ch2.1-物理层基本概念">
+                <i class="fa fa-chevron-left"></i> ch2.1-物理层基本概念
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/08/14/%E5%A6%82%E4%BD%95%E5%9C%A8%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD%E6%90%AD%E5%BB%BAGit%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="prev" title="如何在云服务器中搭建Git服务器并用ngnix部署hexo">
+                如何在云服务器中搭建Git服务器并用ngnix部署hexo <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC81Mjg0NS8yOTMyMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <!--<a href="/archives%7C%7C%20archive"> -->
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Ze1Sure" target="_blank" title="GitHub">
+                      GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">数据通信基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%85%B8%E5%9E%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">1.典型的数据通信模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%9A%84%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD"><span class="nav-number">1.2.</span> <span class="nav-text">2.数据通信的相关术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E8%A6%81%E8%80%83%E8%99%91%E7%9A%843%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">3.设计数据通信系统要考虑的3个问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1%E4%B8%89%E7%A7%8D%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1三种通信方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2%E4%B8%B2%E8%A1%8C%E4%BC%A0%E8%BE%93-amp-%E5%B9%B6%E8%A1%8C%E4%BC%A0%E8%BE%93"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2串行传输&amp;并行传输</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3%E5%90%8C%E6%AD%A5%E4%BC%A0%E8%BE%93%E8%BF%98%E6%98%AF%E5%BC%82%E6%AD%A5%E4%BC%A0%E8%BE%93"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3同步传输还是异步传输</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%91%E5%9B%BE%E6%97%B6%E5%88%BB"><span class="nav-number">1.3.4.</span> <span class="nav-text">脑图时刻</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%A0%81%E5%85%83"><span class="nav-number">1.4.</span> <span class="nav-text">4.码元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%95%B0%E5%AD%97%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87%E7%9A%84%E4%B8%A4%E7%A7%8D%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text">5.数字通信系统数据传输速率的两种表示方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.6.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1%E7%A0%81%E5%85%83%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87"><span class="nav-number">1.6.1.</span> <span class="nav-text">5.1码元传输速率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2%E4%BF%A1%E6%81%AF%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87"><span class="nav-number">1.6.2.</span> <span class="nav-text">5.2信息传输速率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3%E4%B8%A4%E7%A7%8D%E4%BC%A0%E8%BE%93%E9%80%9F%E7%8E%87%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.6.3.</span> <span class="nav-text">5.3两种传输速率的转换</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ABCze1Sure</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">55k</span>
+  
+</div>
+  <!--
+   
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+-->
+        
+<div class="busuanzi-count">
+   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("J5d8aXYNXkoBqPzejrONXv8M-gzGzoHsz", "cGeeHc9xfN5JwRQgg21bCSBE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

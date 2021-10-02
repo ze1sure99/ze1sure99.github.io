@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计网," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="计算机网络分层结构 1.OSI参考模型介绍1.1ISO&#x2F;OSI参考模型–怎么来的？ 2.2ISO&#x2F;OSI参考模型 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ch1.5-OSI参考模型">
+<meta property="og:url" content="http://yoursite.com/2021/08/08/ch1.5-OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="ze1Sure">
+<meta property="og:description" content="计算机网络分层结构 1.OSI参考模型介绍1.1ISO&#x2F;OSI参考模型–怎么来的？ 2.2ISO&#x2F;OSI参考模型 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576">
+<meta property="og:locale">
+<meta property="og:image" content="https://files.catbox.moe/olwaxl.png">
+<meta property="og:image" content="https://files.catbox.moe/17jhlm.png">
+<meta property="og:image" content="https://files.catbox.moe/4cjivj.png">
+<meta property="og:image" content="https://files.catbox.moe/gdrp3a.png">
+<meta property="og:image" content="https://files.catbox.moe/30ezb9.png">
+<meta property="og:image" content="https://files.catbox.moe/2qpd90.png">
+<meta property="og:image" content="https://files.catbox.moe/ssrr22.png">
+<meta property="og:image" content="https://files.catbox.moe/z2b7f1.png">
+<meta property="og:image" content="https://files.catbox.moe/1vn27f.png">
+<meta property="og:image" content="https://files.catbox.moe/j2jx3k.png">
+<meta property="og:image" content="https://files.catbox.moe/orpl0u.png">
+<meta property="og:image" content="https://files.catbox.moe/3hnsct.png">
+<meta property="og:image" content="https://files.catbox.moe/1o3fdu.png">
+<meta property="og:image" content="https://files.catbox.moe/xbvbtu.png">
+<meta property="og:image" content="https://files.catbox.moe/wnmjsj.png">
+<meta property="og:image" content="https://files.catbox.moe/tkpz0b.png">
+<meta property="article:published_time" content="2021-08-08T08:00:11.000Z">
+<meta property="article:modified_time" content="2021-09-29T09:47:00.664Z">
+<meta property="article:author" content="ABCze1Sure">
+<meta property="article:tag" content="计网">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://files.catbox.moe/olwaxl.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2021/08/08/ch1.5-OSI参考模型/"/>
+
+
+
+
+
+  <title>ch1.5-OSI参考模型 | ze1Sure</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a target="_blank" rel="noopener" href="https://github.com/Ze1Sure" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#70B7FD; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+      <div class="site-meta-headline">
+        <a>
+          <img class="custom-logo-image" src="https://files.catbox.moe/ofn4fy.png"
+               alt="ze1Sure"/>
+        </a>
+      </div>
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ze1Sure</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">朝闻道 夕可眠矣</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/08/ch1.5-OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ze1Sure">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ch1.5-OSI参考模型</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-08-08T16:00:11+08:00">
+                2021-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%BD%91/" itemprop="url" rel="index">
+                    <span itemprop="name">计网</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2021/08/08/ch1.5-OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/" class="leancloud_visitors" data-flag-title="ch1.5-OSI参考模型">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  8.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  28
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="计算机网络分层结构"><a href="#计算机网络分层结构" class="headerlink" title="计算机网络分层结构"></a>计算机网络分层结构</h5><p><img src="https://files.catbox.moe/olwaxl.png" alt="计算机网络分层结构"></p>
+<h5 id="1-OSI参考模型介绍"><a href="#1-OSI参考模型介绍" class="headerlink" title="1.OSI参考模型介绍"></a>1.OSI参考模型介绍</h5><h6 id="1-1ISO-OSI参考模型–怎么来的？"><a href="#1-1ISO-OSI参考模型–怎么来的？" class="headerlink" title="1.1ISO/OSI参考模型–怎么来的？"></a>1.1ISO/OSI参考模型–怎么来的？</h6><p><img src="https://files.catbox.moe/17jhlm.png" alt="ISO/OSI参考模型"></p>
+<h6 id="2-2ISO-OSI参考模型"><a href="#2-2ISO-OSI参考模型" class="headerlink" title="2.2ISO/OSI参考模型"></a>2.2ISO/OSI参考模型</h6><p><img src="https://files.catbox.moe/4cjivj.png" alt="ISO/OSI参考模型"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">我们通过通信过程的实例</span><br><span class="line">来研究一下OSI参考模型</span><br><span class="line">它的每一层都实现了哪些功能</span><br><span class="line">比方说我们有两个主机A和主机B</span><br><span class="line">他们两个要进行通信</span><br><span class="line">就想在qq上面进行聊天</span><br><span class="line">那如果是要进行联网上的通信的话</span><br><span class="line">就一定要</span><br><span class="line">有一些中间系统来介入</span><br><span class="line">比如说我们常见的路由器</span><br><span class="line">还有呢</span><br><span class="line">网桥交换机</span><br><span class="line">在之后都可以学到</span><br><span class="line">都叫做</span><br><span class="line">中间系统</span><br><span class="line">我们两个主机之间进行通信</span><br><span class="line">或者说是联通</span><br><span class="line">那这两台主机如果要实现通信</span><br><span class="line">要经过很多很多的步骤</span><br><span class="line">也就是我们OSI七层的参考模型</span><br><span class="line">每一层他们都应该用得到</span><br><span class="line">虽然表面上看来通信很简单</span><br><span class="line">单其实水特别深</span><br><span class="line">那A和B两台主机</span><br><span class="line">他们两个</span><br><span class="line">作为通信的两端</span><br><span class="line">两个端系统都需要经过这样七层的考验</span><br><span class="line">而中间系统呢</span><br><span class="line">比如说路由器</span><br><span class="line">它只需要经过三层</span><br><span class="line">那像交换机</span><br><span class="line">首先呢</span><br><span class="line">物理层</span><br><span class="line">有传输介质</span><br><span class="line">可以是光纤</span><br><span class="line">电缆都可以</span><br><span class="line">因为两个东西</span><br><span class="line">这种东西想起来是非常抽象的</span><br><span class="line">他抽象就一定要最终形象到一种传输介质上</span><br><span class="line">才能使我们信息传输过去</span><br><span class="line">不然我们空想是到不了那的</span><br><span class="line">一定要是固态的</span><br><span class="line">或者是无线的</span><br><span class="line">都可以一样的传输介质</span><br><span class="line">每个层次</span><br><span class="line">对等层次</span><br><span class="line">他们也可以说是对等</span><br><span class="line">实体之间都会有协议</span><br><span class="line">比如说应用层</span><br><span class="line">两个主机间的应用层之间就会有协议</span><br><span class="line">来规定</span><br><span class="line">两台主机应用层都应该实现相同的功能</span><br><span class="line">假如说</span><br><span class="line">主机A有数据要传送到B</span><br><span class="line">比如说他要问B</span><br><span class="line">你吃了吗</span><br><span class="line">要发这样一条消息</span><br><span class="line">首先的消息就要经过应用层</span><br><span class="line">经过应用层给他揉一下</span><br><span class="line">贴上一些信息</span><br><span class="line">再经过表示层</span><br><span class="line">表示层再往上贴点信息</span><br><span class="line">会话层呢</span><br><span class="line">再往上贴点信息</span><br><span class="line">传输层</span><br><span class="line">再往上贴点信息</span><br><span class="line">那我们知道现在你吃了吗</span><br><span class="line">这句话已经变得非常庞大了</span><br><span class="line">它上面有很多很多附加的信息</span><br><span class="line">继续到网络层再贴点</span><br><span class="line">数据层再贴点</span><br><span class="line">再到物理层</span><br><span class="line">其实他是傻瓜层</span><br><span class="line">他是不会对于数据进行太多的处理</span><br><span class="line">他只是把这些数据形成0101</span><br><span class="line">比特流的方式</span><br><span class="line">传送到传输介质上面</span><br><span class="line">进行传送</span><br><span class="line">那我们接下来</span><br><span class="line">就应该传输到中间系统了</span><br><span class="line">因为我们需要经过</span><br><span class="line">中间系统才能够到达主机B</span><br><span class="line">那接下来</span><br><span class="line">他相当于对我们刚才这些数据</span><br><span class="line">对比特流进行还原</span><br><span class="line">到数据链路层还原一下</span><br><span class="line">在网络层再还原一下</span><br><span class="line">那他还原的过程呢</span><br><span class="line">其实看一下</span><br><span class="line">之前对我们数据都做了哪些操作</span><br><span class="line">那我接下来要把数据往哪里送</span><br><span class="line">在对于整个的比特流进行还原的过程</span><br><span class="line">所要进行的</span><br><span class="line">那还原之后呢</span><br><span class="line">继续往上面贴信息</span><br><span class="line">贴信息</span><br><span class="line">贴信息</span><br><span class="line">再放到物理层上面</span><br><span class="line">以比特流的形式在传输界上面进行传输</span><br><span class="line">接下来呢</span><br><span class="line">就到了主机B</span><br><span class="line">那先遇到的是主机B的物理层</span><br><span class="line">继续往上</span><br><span class="line">物理层还原</span><br><span class="line">还原成数据</span><br><span class="line">应用层的数据继续往上还原</span><br><span class="line">还原成网络层的数据</span><br><span class="line">再向上还原</span><br><span class="line">还原成网络层的数据</span><br><span class="line">一步一步</span><br><span class="line">最后还原到应用层</span><br><span class="line">最后呢就把应用层的数据还原成原始的数据</span><br><span class="line">也就是</span><br><span class="line">你吃了吗</span><br><span class="line">这句话传给B主机</span><br><span class="line">这就是在通信过程当中OSI参考模型所做的一些事情</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">上面的四层 我们发现它和下面三层</span><br><span class="line">有点不太一样</span><br><span class="line">不一样呢</span><br><span class="line">大家都应该能观察出来</span><br><span class="line">也就是说中间系统</span><br><span class="line">它是不会有上面四层的</span><br><span class="line">上面四层的功能是中间系统用不到的</span><br><span class="line">所以说我们上面四层</span><br><span class="line">可以就看成主机A和主机B相对应的层次</span><br><span class="line">他们就相当于直接就连在了一起</span><br><span class="line">就好像我给你写一封信</span><br><span class="line">虽然这封信要经过邮局</span><br><span class="line">还有一些快递</span><br><span class="line">经过他们的一些处理和传输才能到达你那</span><br><span class="line">但是在我看来好像信就直接是送给你了一样</span><br><span class="line">由主机A传到了主机B也直接形成了端与端</span><br><span class="line">之间的联通</span><br><span class="line">他们四层实现的是端到端的通信</span><br><span class="line">那我们再来看下面的三层</span><br><span class="line">下面三层</span><br><span class="line">就需要进入到中间系统了</span><br><span class="line">比如说我们主机A的下一步</span><br><span class="line">它应该是要传给中间系统</span><br><span class="line">如果中间系统比较多</span><br><span class="line">路由器比较多的话</span><br><span class="line">那中间系统还会传给下个中间系统</span><br><span class="line">然后才会到我们主机B</span><br><span class="line">所以说每一次的通信或者说每一次对于</span><br><span class="line">数据的传播过程是点到点的</span><br><span class="line">他只是管我下一块</span><br><span class="line">我下一步要走到哪里</span><br><span class="line">而他不会去管我最后的重点最后这样的</span><br><span class="line">端系统是谁</span><br><span class="line">上面的四层</span><br><span class="line">是端到端的通信</span><br><span class="line">而下面的三层</span><br><span class="line">其实是点到点的方式</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.catbox.moe/gdrp3a.png" alt="通信过程"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">刚才我们说我们应用层</span><br><span class="line">首先要对应一条消息</span><br><span class="line">或者是A要发送给B的数据进行一个包装</span><br><span class="line">或者说给他进行了贴上去了东西</span><br><span class="line">那东西呢</span><br><span class="line">其实叫做头部</span><br><span class="line">手部都可以</span><br><span class="line">它是控制信息</span><br><span class="line">控制信息可以是</span><br><span class="line">检查差错的东西</span><br><span class="line">信息来检查我数据有没有发生错误</span><br><span class="line">那还有可能是控制信息</span><br><span class="line">他是做下一步的地址是哪里</span><br><span class="line">这也可能是控制信息的内容</span><br><span class="line">比如说</span><br><span class="line">我要规定某条数据</span><br><span class="line">比如说很多数据都在一块了</span><br><span class="line">我可以让数据先传一点</span><br><span class="line">或者先对数据进行处理</span><br><span class="line">都是控制信息</span><br><span class="line">它可以加上去的内容</span><br><span class="line">它每一层都可以加上控制信息</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">我们在每一层</span><br><span class="line">都可以加上控制信息</span><br><span class="line">那我们可以看到应用层首先对数据加了头部</span><br><span class="line">H7代表加的第七层的头部</span><br><span class="line">数据加上应用层的首部控制信息之后呢</span><br><span class="line">就形成了第七层的PDU</span><br><span class="line">就是协议数据单元</span><br><span class="line">第六层PDU往下传</span><br><span class="line">传到会话层再加上会话层的首部H5</span><br><span class="line">就形成了第五层的PDU</span><br><span class="line">........</span><br><span class="line">注意(数据链路层不仅要加首部还要加个尾部,记忆方法:数据链路层5个字，其他层3个字)</span><br><span class="line">最后呢，物理层</span><br><span class="line">我们刚才说他是傻瓜层</span><br><span class="line">他对于我们拿上来的数据</span><br><span class="line">就不会再去做其他额外的处理了</span><br><span class="line">他只是把它形成0101比特流序列的方式</span><br><span class="line">放到我们下面的传输介质</span><br><span class="line">如下图</span><br><span class="line">很类似我们生活当中的打包和拆包的过程</span><br><span class="line">比如说我们要发送包裹</span><br><span class="line">那对于包裹</span><br><span class="line">肯定要进行一步又一步的打包</span><br><span class="line">一层一层的往上加</span><br><span class="line">最后包装好了之后</span><br><span class="line">通过快递公司传过去了</span><br><span class="line">把所有的包装</span><br><span class="line">所有的附加信息全都拆开</span><br><span class="line">最后拆出来的数据</span><br><span class="line">我自己就可以收下来了</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.catbox.moe/30ezb9.png" alt="ISO/OSI参考模型"></p>
+<h5 id="2-OSI参考模型各层的功能以及各层对应的重要协议"><a href="#2-OSI参考模型各层的功能以及各层对应的重要协议" class="headerlink" title="2.OSI参考模型各层的功能以及各层对应的重要协议"></a>2.OSI参考模型各层的功能以及各层对应的重要协议</h5><h6 id="2-1应用层"><a href="#2-1应用层" class="headerlink" title="2.1应用层"></a>2.1应用层</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">它是用户与网络的界面</span><br><span class="line">看到这个词&quot;应用&quot;</span><br><span class="line">我们就应该想到这个层次应该是面向用户的</span><br><span class="line">应用层就是所有能和用户交互并且产生网络流量的程序</span><br><span class="line">什么叫做能够产生网络流量呢</span><br><span class="line">就只要说是你连上网了</span><br><span class="line">才可以使用的程序就是属于应用层的范畴</span><br><span class="line">但是如果你不用联网也可以使用</span><br><span class="line">比如说记事本啊</span><br><span class="line">这样不需要联网的程序</span><br><span class="line">它就不算应用层的范围</span><br><span class="line">比如说QQ或者说是一些可以发送电子邮件</span><br><span class="line">的一些邮箱</span><br><span class="line">比较常见的典型的一些应用层的服务呢</span><br><span class="line">有一个(文件传输)</span><br><span class="line">它主要的协议是(ftp)</span><br><span class="line">电子邮件呢</span><br><span class="line">他也是应用层的典型服务</span><br><span class="line">使用的协议主要是(SMTP)</span><br><span class="line">还有万维网</span><br><span class="line">万维网其实就是我们常说的www</span><br><span class="line">用的协议就是http</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.catbox.moe/2qpd90.png" alt="应用层"></p>
+<h6 id="2-2表示层"><a href="#2-2表示层" class="headerlink" title="2.2表示层"></a>2.2表示层</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">它是应用层紧邻的一个层次</span><br><span class="line">根据字面意思呢</span><br><span class="line">就是最后呈现在我们的设备或者是屏幕上面</span><br><span class="line">是都有哪些东西</span><br><span class="line">表示层主要是用于处理在两个通信系统中交换信息的表示方式(语法和语义)</span><br><span class="line">两个通信系统呢</span><br><span class="line">指的就是任何两台设备</span><br><span class="line">手机啊</span><br><span class="line">电脑都可以</span><br><span class="line">交换信息呢</span><br><span class="line">就是这两台设备之间进行一个数据传递的过程</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">功能一:数据格式变换</span><br><span class="line">原因是不同的主机它的这个编码以及表示方式都可能不太一样</span><br><span class="line">所以为了使不同的主机</span><br><span class="line">能够进行一个数据或者</span><br><span class="line">信息的交换</span><br><span class="line">就需要表示层</span><br><span class="line">实现数据格式变换的这样一个功能</span><br><span class="line">也就是像一个翻译官的角色</span><br><span class="line">假如说我们这个数据链路上</span><br><span class="line">传输的都是比特流的形式(...0111011000..)</span><br><span class="line">最后呢 传到你的这个主机上</span><br><span class="line">也就是传到接收端上</span><br><span class="line">我想要看到的是一个图片</span><br><span class="line">这时候就需要让这个表示层出马</span><br><span class="line">他就要把这个比特流的形式转换成jpg的</span><br><span class="line">数据格式</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">功能二:对于数据加密和解密</span><br><span class="line">有的时候我们可能会在微信聊天或者QQ聊天上面</span><br><span class="line">说一些比较隐私的话题</span><br><span class="line">比如说我要告诉你我的微信密码是多少</span><br><span class="line">那这样一句话</span><br><span class="line">放在链路上传输的时候</span><br><span class="line">就要对它先进行一个加密</span><br><span class="line">在发送端进行一个加密之后</span><br><span class="line">再放到内容上面传输</span><br><span class="line">如果不加密的话</span><br><span class="line">这个有人可能就会从这个链路上抓包</span><br><span class="line">把这个信息拿下来了</span><br><span class="line">相当于就拿到了你的支付密码</span><br><span class="line">所以需要加密</span><br><span class="line">然后到了接收端呢</span><br><span class="line">就是到你发送的那个人的手机那边</span><br><span class="line">他就会对于这样一条数据进行一个解密的过程</span><br><span class="line">然后</span><br><span class="line">解密下来的结果就是</span><br><span class="line">这句话最后呈现再接收端的手机屏幕上</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">第三个功能:数据压缩和恢复</span><br><span class="line">比如说我们在跟别人聊天的时候</span><br><span class="line">那这个聊天的图像呢</span><br><span class="line">非常大</span><br><span class="line">我们要先把这个图像</span><br><span class="line">进行一个压缩</span><br><span class="line">然后再传到链路上面</span><br><span class="line">最后呢</span><br><span class="line">到接收端的时候</span><br><span class="line">再把这个压缩的文件解压缩</span><br><span class="line">或者说是一个恢复的过程</span><br><span class="line">然后这个图像</span><br><span class="line">就可以呈现在接收端的那边的屏幕上了</span><br><span class="line">主要协议:JPEG、ASCII</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.catbox.moe/ssrr22.png" alt="表示层"></p>
+<h6 id="2-3会话层"><a href="#2-3会话层" class="headerlink" title="2.3会话层"></a>2.3会话层</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">向表示层实体&#x2F;用户进程提供(建立连接)</span><br><span class="line">并在连接上(有序)地(传输)数据</span><br><span class="line">这是会话</span><br><span class="line">也是(建立同步)(SYN)</span><br><span class="line">我们可以先举一个例子</span><br><span class="line">假如说我只有一台电脑</span><br><span class="line">那我这个电脑呢</span><br><span class="line">要用浏览器访问一些网页</span><br><span class="line">首先呢</span><br><span class="line">我访问了这个百度的网页</span><br><span class="line">但是我没有关闭</span><br><span class="line">我又访问了一个新的网页</span><br><span class="line">那这个王爷呢</span><br><span class="line">可以让我看一些电影</span><br><span class="line">现在呢 就说明我这个电脑已经跟这两个网页</span><br><span class="line">或者说这两个窗口已经建立起了同步</span><br><span class="line">但是呢</span><br><span class="line">现在还没有进行数据的传输</span><br><span class="line">假如说</span><br><span class="line">我现在正看电影呢</span><br><span class="line">我点快进想多往后看几秒</span><br><span class="line">那点了这个快进之后呢</span><br><span class="line">他应该马上就会有一个回应</span><br><span class="line">这个电影的画面就会往前播放几秒了</span><br><span class="line">而不是会导致我们这个百度发生什么变化</span><br><span class="line">这就是因为我的这个主机</span><br><span class="line">和这个电影</span><br><span class="line">这个服务器之间建立的一个连接</span><br><span class="line">一个会话</span><br><span class="line">是不会影响到我这个主机和其他的窗口内容</span><br><span class="line">这就是因为我们会话已经建立好了</span><br><span class="line">所以会话之间是彼此独立而不影响的</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">会话层的功能:</span><br><span class="line">1.就是可以建立管理以及终止会话</span><br><span class="line">(参考上述打开关闭这个网页)</span><br><span class="line">2.使用校验点可使会话在通信失效时从(校验点&#x2F;同步点)继续回复通信，实现数据同步</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">校验点:假如说我们要发送一个数据</span><br><span class="line">发送一个特别长的数据</span><br><span class="line">那我们就会在这个数据留了几个部分</span><br><span class="line">分别切开</span><br><span class="line">然后呢</span><br><span class="line">插入一个校验点</span><br><span class="line">或者叫同步点</span><br><span class="line">它的作用呢</span><br><span class="line">就是万一我们这个网络出现问题了</span><br><span class="line">通信失效了</span><br><span class="line">会话突然被停止或会话被关闭了</span><br><span class="line">我们就可以恢复到刚才的同步点那个地方</span><br><span class="line">继续通信</span><br><span class="line">这样的话</span><br><span class="line">我们就不用再从头开始通信了</span><br><span class="line">比如说我们在传输大文件的时候</span><br><span class="line">假如是一个小说</span><br><span class="line">123章都传输完毕</span><br><span class="line">通信失效了</span><br><span class="line">所以呢</span><br><span class="line">我们就要重传</span><br><span class="line">重新传这个文件</span><br><span class="line">可是我们要从哪里传呢</span><br><span class="line">正常可能是有一个想法</span><br><span class="line">是从第一张开始传</span><br><span class="line">但这个呢</span><br><span class="line">非常浪费时间</span><br><span class="line">所以说我们有一个有效的方法就是插入</span><br><span class="line">了校验点</span><br><span class="line">之后在离校验点最近的位置重新传输</span><br><span class="line">也就是说</span><br><span class="line">我们如果在第四章的那个地方插了一个校验点</span><br><span class="line">如果网络通信失效</span><br><span class="line">我们就可以回到刚才那个校验点</span><br><span class="line">从第四章再重新传</span><br><span class="line">这样可以大大的节省一些时间</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">会话层主要协议:ADSP和ASP</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.catbox.moe/z2b7f1.png" alt="会话层"></p>
+<h6 id="2-4传输层"><a href="#2-4传输层" class="headerlink" title="2.4传输层"></a>2.4传输层</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">传输层负责主机中(两个进程)的通信</span><br><span class="line">即(端到端)的通信</span><br><span class="line">传输单位是报文段或用户数据报</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">首先</span><br><span class="line">再强调一下</span><br><span class="line">上面四层呢</span><br><span class="line">是端到端通信</span><br><span class="line">而下面三层都是点到点的通信</span><br><span class="line">只要在两台主机进行通信的过程中</span><br><span class="line">还需要一些中间的系统</span><br><span class="line">比如说路由器 交换机等等</span><br><span class="line">那这些设备呢</span><br><span class="line">它只需要经过下面三个层次就可以了</span><br><span class="line">网络层</span><br><span class="line">数据链路层</span><br><span class="line">和物理层</span><br><span class="line">上面四层呢</span><br><span class="line">它们是不需要经历的</span><br><span class="line">而两个端系统</span><br><span class="line">或者说两个主机</span><br><span class="line">他们是需要经过全部的七个层次</span><br><span class="line">因为端到端通信指的是运行在不同主机内</span><br><span class="line">两个进程之间的通信</span><br><span class="line">而每一个进程呢</span><br><span class="line">都会用一个标识来标识它</span><br><span class="line">我们在这里叫他是端口号</span><br><span class="line">所以是进程与进程之间的通信</span><br><span class="line">也就是端到端的通信</span><br><span class="line">他的名字就是这么来的</span><br><span class="line">那么如何分辨</span><br><span class="line">或者是如何记忆端到端和点到点</span><br><span class="line">我们可以这样想</span><br><span class="line">上面四层呢</span><br><span class="line">就是一些大老板</span><br><span class="line">那这些老板呢</span><br><span class="line">比如说</span><br><span class="line">他要发送一个文件</span><br><span class="line">给另一个地方的公司</span><br><span class="line">他不需要管</span><br><span class="line">我这个文件到哪了</span><br><span class="line">到成都了</span><br><span class="line">到北京了</span><br><span class="line">不需要管这些</span><br><span class="line">具体的</span><br><span class="line">他只需要知道我这个文件</span><br><span class="line">最后要发给那个公司就OK了</span><br><span class="line">而下面三层呢</span><br><span class="line">不仅要知道最后要去哪</span><br><span class="line">而且</span><br><span class="line">主要的还是要知道</span><br><span class="line">下一步要往哪走</span><br><span class="line">下一步都是他们要管的</span><br><span class="line">所以他们给我们看来就是</span><br><span class="line">一种从一个点</span><br><span class="line">到另一个点</span><br><span class="line">一步一步的往前走</span><br><span class="line">这样一个过程</span><br><span class="line">所以他们三个叫点到点的通信</span><br><span class="line">而上面四个呢</span><br><span class="line">不管那些细节</span><br><span class="line">只管自己的这个目的主机目的地址</span><br><span class="line">所以才是一个端到端的通信</span><br><span class="line">因此我们就区分开了</span><br><span class="line">端到端或者点或点</span><br><span class="line">那接下来</span><br><span class="line">我们看一下传输层的四大功能</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">第一个:(可)靠传输 不可靠传输</span><br><span class="line">第二个:(差)错控制</span><br><span class="line">第三个:(流)量控制</span><br><span class="line">第四个:复(用)分用</span><br><span class="line">总结一下就是可差留用</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">很差的也能够留用吗？</span><br><span class="line">所以我们对于这种情况是绝对不能认输的</span><br><span class="line">输是传输层的输</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">假如说只有两台主机进行通信</span><br><span class="line">中间哪些有很多个路由器</span><br><span class="line">构成了一个比较庞大的网络</span><br><span class="line">可靠传输是什么呢</span><br><span class="line">首先</span><br><span class="line">比如说我们发一个文件</span><br><span class="line">那这个文件挺大的</span><br><span class="line">我们就要先把它切成报文段</span><br><span class="line">切成这样一个传输单位</span><br><span class="line">然后呢</span><br><span class="line">一个一个的放到电路上面进行一个传输</span><br><span class="line">传输到接收端之后呢</span><br><span class="line">每一个对于每一个收到的报文段</span><br><span class="line">这个接收端啊</span><br><span class="line">都会返回他一个确认</span><br><span class="line">告诉你我收到啦</span><br><span class="line">你可以发下一个了</span><br><span class="line">传输到接收端之后</span><br><span class="line">每一个对于每一个收到的报文段</span><br><span class="line">这个接收端</span><br><span class="line">都会返回给他一个确认告诉你</span><br><span class="line">我收到啦</span><br><span class="line">你可以发下一个了</span><br><span class="line">这个就是一个确认的信息</span><br><span class="line">然后呢</span><br><span class="line">这个发送端收到了这个确认协议之后</span><br><span class="line">才能够继续往下发送</span><br><span class="line">那如果有一天</span><br><span class="line">他突然发现</span><br><span class="line">哎 你怎么没消息了</span><br><span class="line">怎么没信啊</span><br><span class="line">你到底收没收到啊</span><br><span class="line">他这个时候就要再发送一遍刚才的那个数据报</span><br><span class="line">或者说刚才的那个报文段</span><br><span class="line">直到收到对于这个报文段的确认为止</span><br><span class="line">那能往下继续发送新的报文段</span><br><span class="line">那这个就是可靠传输</span><br><span class="line">一个基于确认机制的过程</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">接下来不可靠传输</span><br><span class="line">就是不需要建议连接</span><br><span class="line">然后也不用管他会不会丢</span><br><span class="line">也不用管这些什么确认机制</span><br><span class="line">直接把这个数据报</span><br><span class="line">放上去发就可以了</span><br><span class="line">那通常这些应用</span><br><span class="line">发送一些比较小的数据的时候</span><br><span class="line">有可能是在我们qq上面跟别人说</span><br><span class="line">你在吗</span><br><span class="line">那这样一句话</span><br><span class="line">其实就是一个数据报就可以解决的</span><br><span class="line">问题了</span><br><span class="line">就发送一个包就可以解决</span><br><span class="line">把这句话放到链路上面了</span><br><span class="line">所以</span><br><span class="line">对于非常小的数据</span><br><span class="line">我们是没有必要先建立连接</span><br><span class="line">然后再用确认机制</span><br><span class="line">因为这样特别耗时</span><br><span class="line">而且很麻烦</span><br><span class="line">所以我们就采用这样不可靠传输的方式</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">差错控制</span><br><span class="line">差错控制呢</span><br><span class="line">差错控制就是对于任何差错进行控制</span><br><span class="line">比如说我们这个传送的一些报文段失去了</span><br><span class="line">顺序错了</span><br><span class="line">或者是丢了一些报文段</span><br><span class="line">然后我们传输层的就会负责来纠正这些错误</span><br><span class="line">来把这些错误改邪归正</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">第三个功能</span><br><span class="line">流量控制</span><br><span class="line">这个流量可不是我们正常使用的</span><br><span class="line">几兆流量啊</span><br><span class="line">几个G流量啊</span><br><span class="line">不是这样的</span><br><span class="line">这里面所说的流量一个是我能不能跟得上</span><br><span class="line">或者说咱俩的速度匹不匹配的问题</span><br><span class="line">比如说</span><br><span class="line">我这边再给你发送一个</span><br><span class="line">这是发送端</span><br><span class="line">这是接收端</span><br><span class="line">我再给你发送一大长串的一些数据</span><br><span class="line">或者说发送很多个文件</span><br><span class="line">你的接收能力是有限的</span><br><span class="line">你不可能一次性的就能接收那么多</span><br><span class="line">就好像有的人是吃货</span><br><span class="line">很能吃</span><br><span class="line">但是你不能一下给他塞太多还是吃不下去</span><br><span class="line">所以这个流量控制指的就是控制一下</span><br><span class="line">这个发送方的速度</span><br><span class="line">也就说如果接收方来不及接受了</span><br><span class="line">或者</span><br><span class="line">我接不动了</span><br><span class="line">那个发送方</span><br><span class="line">就需要慢点了</span><br><span class="line">接收方就会告诉发送方</span><br><span class="line">说你慢点发</span><br><span class="line">所以发送方就会减缓他自己</span><br><span class="line">这个发送速率</span><br><span class="line">因此这个过程就叫流量控制</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.catbox.moe/1vn27f.png" alt="传输层"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">第四个功能</span><br><span class="line">复用和分用</span><br><span class="line">复用:多个应用层进程可同时使用下面传输层的服务</span><br><span class="line">分用:运输层把收到的信息分别交付给上面应用层中相应的进程</span><br><span class="line">举个栗子:</span><br><span class="line">只有两台手机</span><br><span class="line">他们之间有qq和微信来进行通信</span><br><span class="line">而且这两个进程呢</span><br><span class="line">这两个程序都已经打开了</span><br><span class="line">已经变成了两个进程</span><br><span class="line">那我们看一下什么是复用</span><br><span class="line">端口号大家还记得吗</span><br><span class="line">刚才我们讲过</span><br><span class="line">每一个进程都会分配一个端口号来标识他</span><br><span class="line">他是独一无二的端口号</span><br><span class="line">那假如说我们暂时</span><br><span class="line">把qq这个端口号</span><br><span class="line">标为一</span><br><span class="line">微信这个进程的端口号</span><br><span class="line">标为二</span><br><span class="line">那现在我要这台手机</span><br><span class="line">要给另一台手机发消息了</span><br><span class="line">而且这两个程序都要发消息</span><br><span class="line">那我们就把发送的消息呢</span><br><span class="line">以这个报文段的形式</span><br><span class="line">放到这个传输层上面</span><br><span class="line">再进行下一步的传输</span><br><span class="line">形成一个报文段的形式</span><br><span class="line">那要注意的就是</span><br><span class="line">他们在形成报文段之后呢</span><br><span class="line">每一个包含</span><br><span class="line">比如说包含这个QQ的报文段</span><br><span class="line">它上面就会带有一个信息</span><br><span class="line">就是说这个qq程序的端口号是1号</span><br><span class="line">另一个 如果是包含微信</span><br><span class="line">要发的消息的报文段</span><br><span class="line">那这个报文段上面就会有一个信息</span><br><span class="line">说这个微信的端口号</span><br><span class="line">它所对应的是2号</span><br><span class="line">那这个数据</span><br><span class="line">其实就可以说是</span><br><span class="line">这些进程使用了这个传输层的一个服务了</span><br><span class="line">那接下来</span><br><span class="line">这个数据发送到接收端</span><br><span class="line">接收端</span><br><span class="line">就要开始把这些数据取出来了</span><br><span class="line">至于怎么取</span><br><span class="line">就需要我们刚才所说的端口号</span><br><span class="line">因为我们看到这个报文段可能有很多个</span><br><span class="line">很多个报文段</span><br><span class="line">那我们就看他分别对应的这个</span><br><span class="line">进程的端口号是多少</span><br><span class="line">假如说我们看到这一块数据啊</span><br><span class="line">这一条数据它的端口号是一</span><br><span class="line">现在这个接收端他就知道了</span><br><span class="line">那你这条数据是要发送给qq了</span><br><span class="line">那就把这个数据发给qq</span><br><span class="line">那又看到另外一个报文段</span><br><span class="line">他所对应的这个端口号</span><br><span class="line">是二</span><br><span class="line">也就说明</span><br><span class="line">接收端懂了</span><br><span class="line">这一条数据呢</span><br><span class="line">是要发送给我们这个</span><br><span class="line">二号进程也就是这个微信进程的</span><br><span class="line">所以他就把这个数据分给这个对应的</span><br><span class="line">微信进程</span><br><span class="line">因此有了端口号</span><br><span class="line">才能保证我们接收到来的一系列很复杂的数据</span><br><span class="line">都能走到自己对应的位置</span><br><span class="line">能回到自己的老家</span><br><span class="line">那这个就是复用和分用的过程</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">传输层的主要协议:TCP、UDP</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.catbox.moe/j2jx3k.png" alt="传输层"></p>
+<h6 id="2-5网络层"><a href="#2-5网络层" class="headerlink" title="2.5网络层"></a>2.5网络层</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">网络层也叫做ip层</span><br><span class="line">也叫做网际层</span><br><span class="line">也是我们七层当中最重要的一个层次</span><br><span class="line">主要任务是把(分组)从源端传到目的端</span><br><span class="line">为分组交换网上的不同主机提供通信服务</span><br><span class="line">网络层传输单位是(数据报)</span><br><span class="line">这里讲一下数据报和分组的关系</span><br><span class="line">数据报过长的时候</span><br><span class="line">就可以把数据报进行一个切割</span><br><span class="line">切割成一个又一个小的分组</span><br><span class="line">再放到链路上面来传递</span><br><span class="line">这样的就会使我们在传输的过程当中更加的灵活</span><br><span class="line">而且 消耗</span><br><span class="line">或者说是损失也会更小</span><br><span class="line">为分组交换往上的不同主机提供通讯服务</span><br><span class="line">也从一个方面表明了我们网络层非常重要的一个功能</span><br><span class="line">就可以实现网际互连</span><br><span class="line">实现不同主机之间的联通与通信</span><br><span class="line">那接下来我们看一下网络层的四大功能</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.catbox.moe/orpl0u.png" alt="网络层"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">功能一:路由选择</span><br><span class="line">功能二:流量控制</span><br><span class="line">功能三:差错控制</span><br><span class="line">功能四:拥塞控制</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.catbox.moe/3hnsct.png" alt="网络层"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">路由选择:选择合适的路由</span><br><span class="line">假如说发送端要发送一个数据</span><br><span class="line">发送端要发送一个数据</span><br><span class="line">发送一个数据报给接收端</span><br><span class="line">那他可以走上面的两个路由器</span><br><span class="line">当然因为下面的这个地方也是联通的</span><br><span class="line">也可以走下面这种方式</span><br><span class="line">那具体选择哪一种方式</span><br><span class="line">要看我们当时的网络情况</span><br><span class="line">而且要经过这个</span><br><span class="line">通过利用相应的路由算法来计算</span><br><span class="line">选出一个最佳路径</span><br><span class="line">最合适的一个路由方式</span><br><span class="line">才能使这个分组从发送端正确</span><br><span class="line">或者说顺利的到达这个接收端</span><br><span class="line">这就是如果路由选择的过程</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">第二个就是流量控制</span><br><span class="line">在传输层我们也讲过</span><br><span class="line">他其实就是要协调</span><br><span class="line">发送端和接收端的一个速度问题</span><br><span class="line">假如发送端发送的太快了</span><br><span class="line">接收端来不及接收</span><br><span class="line">他就要告诉发送端</span><br><span class="line">你慢点发</span><br><span class="line">这个时候就是对于发送端速度的一个控制</span><br><span class="line">也是我们流量控制的过程</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">第三个差错控制</span><br><span class="line">差错控制就是通信两节点之间</span><br><span class="line">约定一些特定的规则</span><br><span class="line">比如今后要学的奇偶校验码等等</span><br><span class="line">那接收方呢</span><br><span class="line">就会根据这个规则来检查我收到的分组有没有什么错</span><br><span class="line">如果能纠错就纠错</span><br><span class="line">不能纠错</span><br><span class="line">他就把这个分组扔掉</span><br><span class="line">这样的话就可以确保</span><br><span class="line">上面的一个层次</span><br><span class="line">也就说传输层所提交的数据</span><br><span class="line">都是没有问题的</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">第四个功能</span><br><span class="line">也就是拥塞控制</span><br><span class="line">那这个拥塞控制和流量控制有一点区别</span><br><span class="line">流量控制 我们主要限制发送方的速度</span><br><span class="line">但是拥塞控制呢</span><br><span class="line">使针对一个全局的</span><br><span class="line">宏观上来看</span><br><span class="line">整体要控制一下速度</span><br><span class="line">拥塞控制主要指的就是如果所有节点网络</span><br><span class="line">当中的所有节点</span><br><span class="line">包括主机和中间系统</span><br><span class="line">都来不及接收分组了</span><br><span class="line">而要丢弃大量分组的话</span><br><span class="line">那网络就会处于一个拥塞状态</span><br><span class="line">因此要采取一定措施环节这种拥塞</span><br><span class="line">就叫做拥塞控制</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.catbox.moe/1o3fdu.png" alt="网络层"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">网络层的主要协议:IP、IPX、ICMP、IGMP、ARP、RARP、OSPF </span><br><span class="line">随着以后的学习会具体的讲到</span><br><span class="line">那到时候大家再去理解这些协议都是负责哪些功能的 </span><br></pre></td></tr></table></figure>
+
+<h6 id="2-6数据链路层"><a href="#2-6数据链路层" class="headerlink" title="2.6数据链路层"></a>2.6数据链路层</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">主要任务使把网络层传下来的数据报(组装成帧)</span><br><span class="line">数据链路层&#x2F;链路层的传输单位是(帧)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">功能一:成帧(定义帧的开始和结束)</span><br><span class="line">也就是说 我们数据报组装成帧之后</span><br><span class="line">会形成一个比较长的比特流序列</span><br><span class="line">所以我们对于这样一个比特流序列</span><br><span class="line">就要定义一下在哪开始</span><br><span class="line">是这个帧的开始</span><br><span class="line">在哪呢</span><br><span class="line">是这个帧的结束</span><br><span class="line">也就是分别定义几种</span><br><span class="line">或者是两种这个帧的开始</span><br><span class="line">和结束的01组合</span><br><span class="line">只有这样定义号呢</span><br><span class="line">我们才可以在接收端收到一个帧的时候</span><br><span class="line">提取出这个帧的部分</span><br><span class="line">数据的部分</span><br><span class="line">进而上交给网络层实现下一步的解封装</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">功能二:差错控制</span><br><span class="line">这里面的差错</span><br><span class="line">包括帧错</span><br><span class="line">或者是位错</span><br><span class="line">对于这两种错误呢</span><br><span class="line">我们这个数据链路层都会有相应的检测或者说纠错的方法</span><br><span class="line">如果发现有差错呢</span><br><span class="line">数据链路层可能就会简单的丢弃差错的帧</span><br><span class="line">以免继续在这个网络下</span><br><span class="line">传下去会浪费资源</span><br><span class="line">那如果需要改正数据呢</span><br><span class="line">也就是说</span><br><span class="line">要纠错的话</span><br><span class="line">就可以用一些可靠传输</span><br><span class="line">协议来纠正出现的差错</span><br><span class="line">所以在差错控制这儿呢</span><br><span class="line">可以检错</span><br><span class="line">也可以纠错</span><br><span class="line">这个是要针对不同的错误的情况</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">第三个功能就是流量控制</span><br><span class="line">我们在传输层和网络层都讲过</span><br><span class="line">它是对于这个发送方和接收方一个速度协调问题</span><br><span class="line">如果接收方那边的缓存不够用了</span><br><span class="line">那再发来的数据全都要丢弃掉</span><br><span class="line">所以他就会告诉发送方你慢点发</span><br><span class="line">如果接收方那边的缓存不够用了</span><br><span class="line">那再发来的数据全都要丢弃掉</span><br><span class="line">等我缓存有空间了</span><br><span class="line">你再可以加快速度</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第四个功能就是访问</span><br><span class="line">或者说是接入控制</span><br><span class="line">主要呢</span><br><span class="line">对于信道的一个访问的控制</span><br><span class="line">首先呢</span><br><span class="line">我们这边有四个主机</span><br><span class="line">那他们都会连在这样一个传输介质</span><br><span class="line">物理介质上面</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">首先呢 </span><br><span class="line">我们这边有四个主机</span><br><span class="line">那他们都会连在这样一个传输介质</span><br><span class="line">物理介质上面</span><br><span class="line">那如果在这个广播式网络当中呢</span><br><span class="line">数据链路层就要处理这种访问接入控制的问题了</span><br><span class="line">就要控制一下哪台主机现在可以占用这样一个信道</span><br><span class="line">因为在广播式网络当中</span><br><span class="line">同一时间只能由一个人在发送消息</span><br><span class="line">其他人都是处于监听的状态</span><br><span class="line">所以这个数据链路层</span><br><span class="line">他就是可以控制这样一个大家对于共享信道的访问</span><br><span class="line">这是由它的一个特殊子层</span><br><span class="line">也就是介质访问子层</span><br><span class="line">来专门处理控制这个问题的</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">数据链路层的主要协议:</span><br><span class="line">SDLC、HDLC、PPP、STP</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.catbox.moe/xbvbtu.png" alt="数据链路层"></p>
+<h6 id="2-7物理层"><a href="#2-7物理层" class="headerlink" title="2.7物理层"></a>2.7物理层</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">那接下来就到最后一个很简单的层次</span><br><span class="line">也是我们之前提到过的傻瓜层物理层</span><br><span class="line">之所以说物理层它是傻瓜层</span><br><span class="line">就是因为这个物理层的功能实在是太简单了</span><br><span class="line">他只需要把比特流转成电信号的形式</span><br><span class="line">然后放到例如上面</span><br><span class="line">进行一个传输就ok了</span><br><span class="line">不需要怼我们这个数据有什么改动</span><br><span class="line">也不知道对他有什么切割</span><br><span class="line">所以物理层的主要任务就是在物理媒体上</span><br><span class="line">实现比特流的透明传输</span><br><span class="line">传输单位就是比特</span><br><span class="line">物理媒体可以是任何一种物理的介质</span><br><span class="line">物理传输介质</span><br><span class="line">比如说同轴电缆</span><br><span class="line">双绞线</span><br><span class="line">还有无线电波等等</span><br><span class="line">透明传输呢</span><br><span class="line">指的就是不管所传的数据是什么样的比特组合</span><br><span class="line">都应当能够在链路上传送</span><br><span class="line">所以透明传输就是保证不管我接受到的是</span><br><span class="line">什么样的比特组合</span><br><span class="line">我都相当于无视他一样</span><br><span class="line">直接就把它放到内容上面</span><br><span class="line">进行一个传输</span><br><span class="line">就说你给我什么</span><br><span class="line">我就往外发什么</span><br><span class="line">这就是物理层傻瓜的地方</span><br><span class="line">就好像我们这边手来了一系列的比特流</span><br><span class="line">那物理层的只是单纯的把它们转换成电信号的形式</span><br><span class="line">然后就放到链路上面进行传播了</span><br><span class="line">所以这就是透明传输的意思</span><br><span class="line">那我们再来看物理层的几个功能</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">第一个就是定义接口特性</span><br><span class="line">这个说法比较多</span><br><span class="line">因为还有很多个一些相关的特性</span><br><span class="line">大概讲一下这个接口特性呢</span><br><span class="line">比如说我们要确定连接</span><br><span class="line">电缆的插头应该要多少根引脚</span><br><span class="line">或者说每一条引角应该如何连接</span><br><span class="line">这都属于接口特性的部分了</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">第二个功能就是可以定义传输模式</span><br><span class="line">这里面的传输模式有三种</span><br><span class="line">单工</span><br><span class="line">半双工</span><br><span class="line">和双工</span><br><span class="line">的传输模式</span><br><span class="line">单工指的就是只可以单方向</span><br><span class="line">也就是如果两个人进行通信的话</span><br><span class="line">只可以同一时间有一个人在发送</span><br><span class="line">另一个就是一直在接收的</span><br><span class="line">这个是发送端和接收端就完全确认好了</span><br><span class="line">而半双工</span><br><span class="line">字面意思就知道</span><br><span class="line">他是介于单工和双工之间的一种通信方式</span><br><span class="line">半双工就是说两个人都可以作为发送方和接收方</span><br><span class="line">但是同一时间还是只能有一个人发送信息</span><br><span class="line">就好像我们在用对讲机的时候</span><br><span class="line">你同一时间只能由一个人在说话</span><br><span class="line">那另外一个时间你这个人说完话了</span><br><span class="line">还可以换别的人说话</span><br><span class="line">所以发送端是两个人都可以的</span><br><span class="line">但是同一时间只能有一个人在说话</span><br><span class="line">双工呢</span><br><span class="line">自然就是两个人可以双向同时的说话</span><br><span class="line">就好像我们打电话一样</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">第三个功能就是定义传输速率</span><br><span class="line">我们说的百兆网</span><br><span class="line">十兆网</span><br><span class="line">这个十兆、百兆就是指我们这个</span><br><span class="line">发送端的发送速率</span><br><span class="line">或者说传输速率</span><br><span class="line">这都是物理层可以定义的</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第四个功能就是比特同步</span><br><span class="line">比特同步就是这端发送的1</span><br><span class="line">接收端就可以接收到1</span><br><span class="line">这种保证比特的同步是需要一个时钟的</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">第五个功能呢</span><br><span class="line">就是比特编码</span><br><span class="line">比如说什么插分</span><br><span class="line">曼彻斯特编码</span><br><span class="line">等等</span><br><span class="line">他主要就是把这个01规定一下啊</span><br><span class="line">用什么样的电压表示1</span><br><span class="line">什么样的电压表示0</span><br><span class="line">这就是比特编码的意思</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">物理层的协议:</span><br><span class="line">Rj45、802.3</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.catbox.moe/wnmjsj.png" alt="物理层"></p>
+<h5 id="脑图时刻"><a href="#脑图时刻" class="headerlink" title="脑图时刻"></a>脑图时刻</h5><p><img src="https://files.catbox.moe/tkpz0b.png"></p>
+
+      
+    </div>
+    
+    
+    
+    <div>
+       
+       <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+       
+    </div>
+
+    
+
+    
+
+    
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E8%AE%A1%E7%BD%91/" rel="tag"># 计网</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/08/08/ch1.4-%E5%88%86%E5%B1%82%E7%BB%93%E6%9E%84/" rel="next" title="ch1.4-分层结构">
+                <i class="fa fa-chevron-left"></i> ch1.4-分层结构
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/08/10/%E6%8C%81%E7%BB%AD%E5%AD%A6%E4%B9%A0/" rel="prev" title="持续学习">
+                持续学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC81Mjg0NS8yOTMyMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <!--<a href="/archives%7C%7C%20archive"> -->
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/Ze1Sure" target="_blank" title="GitHub">
+                      GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%88%86%E5%B1%82%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">计算机网络分层结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">1.OSI参考模型介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-1ISO-OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B%E2%80%93%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">1.1ISO&#x2F;OSI参考模型–怎么来的？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-2ISO-OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">2.2ISO&#x2F;OSI参考模型</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-OSI%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B%E5%90%84%E5%B1%82%E7%9A%84%E5%8A%9F%E8%83%BD%E4%BB%A5%E5%8F%8A%E5%90%84%E5%B1%82%E5%AF%B9%E5%BA%94%E7%9A%84%E9%87%8D%E8%A6%81%E5%8D%8F%E8%AE%AE"><span class="nav-number">3.</span> <span class="nav-text">2.OSI参考模型各层的功能以及各层对应的重要协议</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2-1%E5%BA%94%E7%94%A8%E5%B1%82"><span class="nav-number">3.1.</span> <span class="nav-text">2.1应用层</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-2%E8%A1%A8%E7%A4%BA%E5%B1%82"><span class="nav-number">3.2.</span> <span class="nav-text">2.2表示层</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-3%E4%BC%9A%E8%AF%9D%E5%B1%82"><span class="nav-number">3.3.</span> <span class="nav-text">2.3会话层</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-4%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="nav-number">3.4.</span> <span class="nav-text">2.4传输层</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-5%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="nav-number">3.5.</span> <span class="nav-text">2.5网络层</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-6%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-number">3.6.</span> <span class="nav-text">2.6数据链路层</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-7%E7%89%A9%E7%90%86%E5%B1%82"><span class="nav-number">3.7.</span> <span class="nav-text">2.7物理层</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%84%91%E5%9B%BE%E6%97%B6%E5%88%BB"><span class="nav-number">4.</span> <span class="nav-text">脑图时刻</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ABCze1Sure</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">55k</span>
+  
+</div>
+  <!--
+   
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+-->
+        
+<div class="busuanzi-count">
+   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+    <span class="site-uv">
+      访客数 <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("J5d8aXYNXkoBqPzejrONXv8M-gzGzoHsz", "cGeeHc9xfN5JwRQgg21bCSBE");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
