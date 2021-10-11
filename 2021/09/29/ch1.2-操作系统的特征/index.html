@@ -79,32 +79,28 @@
 
 
 
-<meta name="description" content="1.中断的作用 1234567891011121314151617181920212223cpu上面会运行两种程序一种是操作系统内核程序一种是应用程序内核程序是整个系统的管理者那我们的计算机在刚起步的时候在上边跑的时候肯定是先启动的内核程序只不过，在实际合适的时候内核程序会把cpu的使用权主动让给应用程序（进程管理相关内容）除非发生了中断，而一旦发生中断，就会让cpu立即停止此时正在执行的应用程序">
+<meta name="description" content="1.操作系统的特征–并发 123456789101112131415161718192021并发：指两个或多个事件在同一时间间隔内发生这些事件宏观上是同时发生的 微观上是交替发生的与并发容易混淆的概念是并行的概念并行：指两个或多个事件在同一时刻同时发生举个例子小渣和老渣都有两个女朋友有两个任务和一号约会和二号约会对于小渣来说采用并行约会的方式：同一时刻同时进行两个约会任务对于老渣来说采用并发约会的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="中断和异常">
-<meta property="og:url" content="http://yoursite.com/2021/09/29/%E4%B8%AD%E6%96%AD%E5%92%8C%E5%BC%82%E5%B8%B8/index.html">
+<meta property="og:title" content="操作系统的特征">
+<meta property="og:url" content="http://yoursite.com/2021/09/29/ch1.2-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81/index.html">
 <meta property="og:site_name" content="ze1Sure">
-<meta property="og:description" content="1.中断的作用 1234567891011121314151617181920212223cpu上面会运行两种程序一种是操作系统内核程序一种是应用程序内核程序是整个系统的管理者那我们的计算机在刚起步的时候在上边跑的时候肯定是先启动的内核程序只不过，在实际合适的时候内核程序会把cpu的使用权主动让给应用程序（进程管理相关内容）除非发生了中断，而一旦发生中断，就会让cpu立即停止此时正在执行的应用程序">
+<meta property="og:description" content="1.操作系统的特征–并发 123456789101112131415161718192021并发：指两个或多个事件在同一时间间隔内发生这些事件宏观上是同时发生的 微观上是交替发生的与并发容易混淆的概念是并行的概念并行：指两个或多个事件在同一时刻同时发生举个例子小渣和老渣都有两个女朋友有两个任务和一号约会和二号约会对于小渣来说采用并行约会的方式：同一时刻同时进行两个约会任务对于老渣来说采用并发约会的">
 <meta property="og:locale">
-<meta property="og:image" content="https://files.catbox.moe/wjgqfj.png">
-<meta property="og:image" content="https://files.catbox.moe/ocz611.png">
-<meta property="og:image" content="https://files.catbox.moe/aaj282.png">
-<meta property="og:image" content="https://files.catbox.moe/qvigy5.png">
-<meta property="og:image" content="https://files.catbox.moe/83lca0.png">
-<meta property="og:image" content="https://files.catbox.moe/svd6s9.png">
-<meta property="og:image" content="https://files.catbox.moe/vwgdnm.png">
-<meta property="og:image" content="https://files.catbox.moe/pv09fi.png">
-<meta property="og:image" content="https://files.catbox.moe/axznm8.png">
-<meta property="og:image" content="https://files.catbox.moe/o0cozl.png">
-<meta property="og:image" content="https://files.catbox.moe/biyzit.png">
-<meta property="og:image" content="https://files.catbox.moe/c478t5.png">
-<meta property="og:image" content="https://files.catbox.moe/hbb7wp.png">
-<meta property="article:published_time" content="2021-09-28T18:38:11.000Z">
-<meta property="article:modified_time" content="2021-09-29T09:58:29.404Z">
+<meta property="og:image" content="https://files.catbox.moe/rudbqh.png">
+<meta property="og:image" content="https://files.catbox.moe/8d8jww.png">
+<meta property="og:image" content="https://files.catbox.moe/vvll3g.png">
+<meta property="og:image" content="https://files.catbox.moe/pzoa7e.png">
+<meta property="og:image" content="https://files.catbox.moe/6vlzfg.png">
+<meta property="og:image" content="https://files.catbox.moe/7xrjkb.png">
+<meta property="og:image" content="https://files.catbox.moe/ug25ur.png">
+<meta property="og:image" content="https://files.catbox.moe/1k51nh.png">
+<meta property="og:image" content="https://files.catbox.moe/zixc10.png">
+<meta property="article:published_time" content="2021-09-29T08:35:17.000Z">
+<meta property="article:modified_time" content="2021-10-02T17:20:50.000Z">
 <meta property="article:author" content="ABCze1Sure">
 <meta property="article:tag" content="OS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://files.catbox.moe/wjgqfj.png">
+<meta name="twitter:image" content="https://files.catbox.moe/rudbqh.png">
 
 
 
@@ -134,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2021/09/29/中断和异常/"/>
+  <link rel="canonical" href="http://yoursite.com/2021/09/29/ch1.2-操作系统的特征/"/>
 
 
 
 
 
-  <title>中断和异常 | ze1Sure</title>
+  <title>操作系统的特征 | ze1Sure</title>
   
 
 
@@ -319,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/29/%E4%B8%AD%E6%96%AD%E5%92%8C%E5%BC%82%E5%B8%B8/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/29/ch1.2-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -336,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">中断和异常</h1>
+          <h1 class="post-title" itemprop="name headline">操作系统的特征</h1>
         
 
         <div class="post-meta">
@@ -348,7 +344,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-29T02:38:11+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-09-29T16:35:17+08:00">
                 2021-09-29
               </time>
             
@@ -359,28 +355,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OS/" itemprop="url" rel="index">
-                    <span itemprop="name">OS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -388,7 +362,7 @@
 
           
           
-             <span id="/2021/09/29/%E4%B8%AD%E6%96%AD%E5%92%8C%E5%BC%82%E5%B8%B8/" class="leancloud_visitors" data-flag-title="中断和异常">
+             <span id="/2021/09/29/ch1.2-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81/" class="leancloud_visitors" data-flag-title="操作系统的特征">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -413,7 +387,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.9k
+                  2.8k
                 </span>
               
 
@@ -429,7 +403,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6
+                  9
                 </span>
               
             </div>
@@ -450,31 +424,33 @@
       
 
       
-        <h1 id="1-中断的作用"><a href="#1-中断的作用" class="headerlink" title="1.中断的作用"></a>1.中断的作用</h1><p><img src="https://files.catbox.moe/wjgqfj.png" alt="中断的作用"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">cpu上面会运行两种程序</span><br><span class="line">一种是操作系统内核程序</span><br><span class="line">一种是应用程序</span><br><span class="line">内核程序是整个系统的管理者</span><br><span class="line">那我们的计算机在刚起步的时候</span><br><span class="line">在上边跑的时候</span><br><span class="line">肯定是先启动的内核程序</span><br><span class="line">只不过，在实际合适的时候</span><br><span class="line">内核程序会把cpu的使用权主动让给应用程序（进程管理相关内容）</span><br><span class="line">除非发生了中断，而一旦发生中断，就会让cpu立即停止此时正在执行的应用程序</span><br><span class="line">转而执行相应的内核程序</span><br><span class="line">所以“中断”是让操作系统内核夺回cpu使用权发的唯一途径</span><br><span class="line">“中断”会使cpu由用户态变为内核态</span><br><span class="line">如果没有“中断”机制，那么一旦应用程序上cpu运行，cpu就会一直运行这个程序</span><br><span class="line">如果cpu一直运行同一个应用程序</span><br><span class="line">我们又怎么可能实现多道程序并发这个事情呢</span><br><span class="line">如果没有“中断”技术，就没有多道程序并发</span><br><span class="line">甚至可以说没有中断技术，就没有操作系统</span><br><span class="line">所以操作系统内核，是整个系统的管理者</span><br><span class="line">当他想要把cpu使用权让给应用程序的时候</span><br><span class="line">那么他会自愿的执行一条特权指令完成这个事情</span><br><span class="line">当他想要把cpu使用权重新夺回来的时候</span><br><span class="line">他也可以通过中断的方式来实现</span><br></pre></td></tr></table></figure>
+        <h1 id="1-操作系统的特征–并发"><a href="#1-操作系统的特征–并发" class="headerlink" title="1.操作系统的特征–并发"></a>1.操作系统的特征–并发</h1><p><img src="https://files.catbox.moe/rudbqh.png" alt="操作系统的特征"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">并发：指两个或多个事件在同一时间间隔内发生</span><br><span class="line">这些事件宏观上是同时发生的 微观上是交替发生的</span><br><span class="line">与并发容易混淆的概念是并行的概念</span><br><span class="line">并行：指两个或多个事件在同一时刻同时发生</span><br><span class="line">举个例子</span><br><span class="line">小渣和老渣都有两个女朋友</span><br><span class="line">有两个任务</span><br><span class="line">和一号约会</span><br><span class="line">和二号约会</span><br><span class="line">对于小渣来说</span><br><span class="line">采用并行约会的方式：</span><br><span class="line">同一时刻同时进行两个约会任务</span><br><span class="line">对于老渣来说</span><br><span class="line">采用并发约会的方式：</span><br><span class="line">在宏观上看</span><br><span class="line">这一天老渣在同时进行两个约会任务</span><br><span class="line">微观上看</span><br><span class="line">在某一时刻</span><br><span class="line">老渣最多正在进行一个约会任务</span><br><span class="line">这就是所谓的微观上交替发生</span><br><span class="line">宏观上并行发生</span><br></pre></td></tr></table></figure>
 
-<h1 id="2-中断的类型"><a href="#2-中断的类型" class="headerlink" title="2.中断的类型"></a>2.中断的类型</h1><p><img src="https://files.catbox.moe/ocz611.png" alt="中断的类型"></p>
-<h2 id="2-1内中断的例子"><a href="#2-1内中断的例子" class="headerlink" title="2.1内中断的例子"></a>2.1内中断的例子</h2><p><img src="https://files.catbox.moe/aaj282.png" alt="内中断的例子"></p>
-<p><img src="https://files.catbox.moe/qvigy5.png" alt="内中断的例子"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">一个应用程序本来运行在用户态</span><br><span class="line">cpu会依次处理它的指令</span><br><span class="line">假如说有一个猥琐的黑客</span><br><span class="line">在这个cpu当中</span><br><span class="line">尝试植入一条特权指令</span><br><span class="line">cpu此时处于用户态</span><br><span class="line">此时正运行的是应用程序</span><br><span class="line">于是这个非法的事件</span><br><span class="line">会触发一个中断信号</span><br><span class="line">cpu会拒绝这条特权指令</span><br><span class="line">接下来cpu会自动的转换成内核态</span><br><span class="line">并且会开始执行处理中断信号相关的内核程序</span><br><span class="line">于是在发生了这样非法的事情之后</span><br><span class="line">系统的管理者会重新夺回</span><br><span class="line">cpu的控制权</span><br><span class="line">所以这就是很典型的内中断的例子</span><br><span class="line">cpu在执行当前的指令的时候</span><br><span class="line">由这条指令引发的一个中断</span><br><span class="line">有时候cpu执行的是非特权指令</span><br><span class="line">也有可能引发内中断</span><br><span class="line">比如说cpu在执行除法指令的时候</span><br><span class="line">发现除数为0</span><br><span class="line">这种情况下</span><br><span class="line">肯定不能让程序继续执行下去</span><br><span class="line">所以这种情况</span><br><span class="line">也会引发内中断</span><br><span class="line">总之当前执行的指令是非法的</span><br><span class="line">指令的参数是非法的</span><br><span class="line">这个时候会产生一个内中断的信号</span><br><span class="line">接下来再看另一个内中断的例子</span><br></pre></td></tr></table></figure>
+<p><img src="https://files.catbox.moe/8d8jww.png" alt="并发"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">这些程序宏观上看是同时运行的</span><br><span class="line">而微观上看是交替运行的</span><br><span class="line">并发性对操作系统来说是一个很重要的基本特性</span><br><span class="line">单核cpu同一时刻只能执行一个程序</span><br><span class="line">各个程序只能并发地执行</span><br><span class="line">对于多核cpu同一时刻可以同时执行多个程序</span><br><span class="line">多个程序可以并行的执行</span><br><span class="line">比如说Intel的第八代i3处理器就是4核cpu</span><br><span class="line">意味着可以并行的执行4个程序</span><br><span class="line">比如说在这个cpu中</span><br><span class="line">意味着可以并行的执行4个程序</span><br><span class="line">如果此时有第五个程序</span><br><span class="line">比如说有world google qq 微信 四个程序并行执行</span><br><span class="line">现在又启动了qq音乐</span><br><span class="line">那world和qq音乐交替着来使用cpu</span><br><span class="line">只要有超过四个以上的程序需要“同时运行”</span><br><span class="line">那么并发性依然是必不可少的</span><br><span class="line">因此并发性是操作系统的一个最基本的特征</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://files.catbox.moe/83lca0.png" alt="内中断的例子"></p>
-<p><img src="https://files.catbox.moe/svd6s9.png" alt="内中断"></p>
-<p><img src="https://files.catbox.moe/vwgdnm.png" alt="内中断的例子"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">一个应用程序运行在用户态</span><br><span class="line">有时候应用程序想请求操作系统内核的服务</span><br><span class="line">在这种情况</span><br><span class="line">应用程序会执行一条特殊的指令叫做陷入指令</span><br><span class="line">这个指令会引发一个内部中断信号</span><br><span class="line">接下来这个cpu会转向相应的内核程序</span><br><span class="line">进行中断信号的处理</span><br><span class="line">cpu状态由用户态转换成内核态</span><br><span class="line">当一个应用程序</span><br><span class="line">执行陷入指令的时候</span><br><span class="line">就意味着主动的把cpu使用权</span><br><span class="line">还给操作系统内核</span><br><span class="line">想让操作系统内核</span><br><span class="line">为他提供某些服务</span><br><span class="line">那我们之前提到过的“系统调用”</span><br><span class="line">就是通过陷入指令来完成的</span><br><span class="line">需要强调的是</span><br><span class="line">陷入指令是一个特殊的指令</span><br><span class="line">但他并不是特权指令</span><br><span class="line">因为这个应用程序是运行在用户态的</span><br><span class="line">但是他不是特权指令</span><br><span class="line">因为这个应用程序他是运行在用户态的</span><br><span class="line">在用户态中这个应用程序可以执行陷入指令</span><br><span class="line">那这个陷入指令肯定也不是特权指令了</span><br></pre></td></tr></table></figure>
+<h1 id="2-操作系统的特征–共享"><a href="#2-操作系统的特征–共享" class="headerlink" title="2.操作系统的特征–共享"></a>2.操作系统的特征–共享</h1><p><img src="https://files.catbox.moe/vvll3g.png" alt="操作系统的特征 "></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">互斥共享指的是</span><br><span class="line">一个时间段内只允许一个进程访问该资源</span><br><span class="line">同时共享指的是</span><br><span class="line">允许一个时间段内由多个进程</span><br><span class="line">“同时”对它们进行访问</span><br><span class="line">这个地方所谓的“同时”</span><br><span class="line">为什么要打双引号呢</span><br><span class="line">所谓的“同时”往往是宏观上的</span><br><span class="line">而在微观上</span><br><span class="line">这些进程可能是交替地对该资源</span><br><span class="line">进行访问的（即分时共享）</span><br><span class="line">直接来看一个例子：</span><br><span class="line">对于互斥共享：</span><br><span class="line">比如说我们使用qq和微信</span><br><span class="line">视频聊天</span><br><span class="line">但是在同一时间段内</span><br><span class="line">只会允许摄像头分配给其中的一个进程使用</span><br><span class="line">比如你用qq和你的家人进行聊天</span><br><span class="line">这个时候</span><br><span class="line">你还想用电脑的微信</span><br><span class="line">和你的小伙伴</span><br><span class="line">进行视频聊天</span><br><span class="line">你就会发现</span><br><span class="line">视频是发不出去的</span><br><span class="line">这个时候会提示摄像头已经分配给其他的进程</span><br><span class="line">所以这就是所谓的互斥共享方式</span><br><span class="line">在一段时间内</span><br><span class="line">摄像头这个资源</span><br><span class="line">只能分配给一个进程使用</span><br><span class="line">再来看第二个例子：</span><br><span class="line">同时共享方式</span><br><span class="line">我们可能会遇到这样的情况</span><br><span class="line">我们用qq给某人发送文件a</span><br><span class="line">用微信发送文件b</span><br><span class="line">在宏观上看来</span><br><span class="line">微信和qq的文件发送的进度条都是一直在往前推进的</span><br><span class="line">所以用户在宏观上看来两边同时在读取发送文件</span><br><span class="line">这些文件他是被放在硬盘里的</span><br><span class="line">在用户看来</span><br><span class="line">看起来就像是qq和微信同时访问</span><br><span class="line">这个资源</span><br><span class="line">从中读取各自文件数据</span><br><span class="line">但事实上</span><br><span class="line">微观上来看</span><br><span class="line">这两个进程</span><br><span class="line">是交替的访问硬盘的</span><br><span class="line">qq先读取文件a的某一个部分</span><br><span class="line">微信再读取文件b的某一个部分</span><br><span class="line">接下来又交替着让qq读文件a的下一部分</span><br><span class="line">然后以此交替的访问硬盘</span><br><span class="line">所以这就是所谓的微观上交替访问这个硬盘资源</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-2外中断的例子"><a href="#2-2外中断的例子" class="headerlink" title="2.2外中断的例子"></a>2.2外中断的例子</h2><p><img src="https://files.catbox.moe/pv09fi.png" alt="外中断的例子"></p>
-<p><img src="https://files.catbox.moe/axznm8.png" alt="外中断的例子"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">例子1:时钟中断 --由时钟部件发来的中断信号</span><br><span class="line">通过时钟中断信号 就可以实现多个程序并发执行了</span><br><span class="line">假设此时系统当中想要并发的运行两个应用程序</span><br><span class="line">应用程序1运行在用户态</span><br><span class="line">cpu会执行这些指令</span><br><span class="line">当他执行两条应用程序1的指令的时候</span><br><span class="line">时钟部件发现已经过了50ms了</span><br><span class="line">他会给cpu发送一个中断信号</span><br><span class="line">这个中断信号和当前执行的指令是没有关系的</span><br><span class="line">他来自于cpu的外部</span><br><span class="line">当cpu检测到中断信号的时候</span><br><span class="line">它会先暂停此时正在运行的应用程序</span><br><span class="line">转而运行一个相应的内核程序</span><br><span class="line">来处理这个中断信号</span><br><span class="line">并且转为内核态</span><br><span class="line">在内核态下</span><br><span class="line">cpu开始执行内核程序</span><br><span class="line">来处理刚才收到的内核程序</span><br><span class="line">然后发现</span><br><span class="line">应用程序1刚才用了50ms的时间了</span><br><span class="line">接下来为了公平起见</span><br><span class="line">我想要第二个应用程序上cpu运行</span><br><span class="line">于是接下来这个内核程序</span><br><span class="line">会把cpu的使用权</span><br><span class="line">给第二个应用程序</span><br><span class="line">接下来又切换回用户态</span><br><span class="line">第二个应用程序开始上cpu运行</span><br><span class="line">cpu执行了第二个应用程序的指令之后</span><br><span class="line">又过了50ms</span><br><span class="line">此时这个时钟部件</span><br><span class="line">又会给cpu发送一个来自于外部的</span><br><span class="line">中断信号</span><br><span class="line">同样 cpu会执行与中断信号相关的内核程序</span><br><span class="line">所以接下来又会执行内核程序</span><br><span class="line">接下来操作系统内核发现程序2已经用了50ms</span><br><span class="line">接下来公平起见</span><br><span class="line">我又想让程序1上去接着运行</span><br><span class="line">于是他会把cpu的使用权让给应用程序1</span><br><span class="line">然后应用程序1又可以接着往下往下执行</span><br><span class="line">它之后的那一系列的指令了</span><br><span class="line">因此我们可以很清晰的看到</span><br><span class="line">两个应用程序</span><br><span class="line">是如何在中断机制的支持下</span><br><span class="line">实现并发运行的</span><br><span class="line">一直不断的相互切换</span><br><span class="line">所以可以看到中断</span><br><span class="line">在现代计算机当中到底有多大的作用</span><br></pre></td></tr></table></figure>
+<h1 id="3-操作系统的特征–并发和共享的关系"><a href="#3-操作系统的特征–并发和共享的关系" class="headerlink" title="3.操作系统的特征–并发和共享的关系"></a>3.操作系统的特征–并发和共享的关系</h1><p><img src="https://files.catbox.moe/pzoa7e.png" alt="操作系统的特征"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">用qq发送文件a，同时又用微信发送文件b</span><br><span class="line">1.qq和微信两个进程正在并发的执行（并发性）</span><br><span class="line">2.这两个进程同时需要完成发送文件的事情</span><br><span class="line">所以他们需要共享的访问硬盘资源（共享性）</span><br><span class="line">如果说我们的系统失去了并发性</span><br><span class="line">就说明在系统当中</span><br><span class="line">同一时间段</span><br><span class="line">只能有一个程序正在运行</span><br><span class="line">也就意味着</span><br><span class="line">这两个进程</span><br><span class="line">他们不需要</span><br><span class="line">同时共享访问硬盘资源</span><br><span class="line">而共享性失去存在的意义</span><br><span class="line">如果说这个系统失去了共享性</span><br><span class="line">qq和微信这两个进程</span><br><span class="line">没办法同时访问硬盘资源</span><br><span class="line">所以他们也没办法同时完成发送文件</span><br><span class="line">这件事情</span><br><span class="line">既然如此</span><br><span class="line">qq和微信也就没办法</span><br><span class="line">同时并发的执行</span><br><span class="line">如果失去了并发性</span><br><span class="line">则共享性就失去了意义</span><br><span class="line">如果失去了共享性</span><br><span class="line">并发就不可能实现</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://files.catbox.moe/o0cozl.png" alt="中断信号"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">除了时钟故障发送中断信号之外</span><br><span class="line">有时候还会有来自I&#x2F;O设备发出的中断信号</span><br><span class="line">比如说某个应用程序会请求打印机的打印服务</span><br><span class="line">打印机在打印输出完成之后</span><br><span class="line">会像cpu发送中断信号</span><br><span class="line">用来通知cpu我的任务已经完成了</span><br><span class="line">接下来cpu会用中断信号</span><br><span class="line">相对应的处理io的内核程序</span><br><span class="line">来对中断信号进行处理</span><br><span class="line">总之</span><br><span class="line">我们提到的这两种中断信号</span><br><span class="line">都来自于cpu的外部</span><br><span class="line">和当前执行的指令是没有关系的</span><br><span class="line">cpu在每一条指令执行结束的时候</span><br><span class="line">都会例行检查是否有外中断信号</span><br><span class="line">需要我来处理</span><br></pre></td></tr></table></figure>
+<h1 id="4-操作系统的特征–虚拟"><a href="#4-操作系统的特征–虚拟" class="headerlink" title="4.操作系统的特征–虚拟"></a>4.操作系统的特征–虚拟</h1><p><img src="https://files.catbox.moe/6vlzfg.png" alt="操作系统的特征--虚拟"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">虚拟我们来看一个实际的例子</span><br><span class="line">我们知道</span><br><span class="line">在一个程序需要执行的时候</span><br><span class="line">需要把它放入内存</span><br><span class="line">并且给他分配给cpu才能执行</span><br><span class="line">我的电脑其实只有4GB内存</span><br><span class="line">但是其实在我的电脑上</span><br><span class="line">可以同时打开迅雷、GTA、网易云音乐</span><br><span class="line">所以看起来这么多的应用软件</span><br><span class="line">总共需要的内存量远大于4GB的</span><br><span class="line">那为什么他们还能同时运行呢</span><br><span class="line">其实这就是虚拟存储器技术</span><br><span class="line">实际上这个电脑只有4GB的内存</span><br><span class="line">但是在用户看来</span><br><span class="line">他变成了逻辑上的对应物</span><br><span class="line">在用户看来他是远远大于4GB的</span><br><span class="line">这其实是虚拟技术中的“空分复用技术”</span><br><span class="line">虚拟存储器技术还有“空分复用技术”这在第三章是会重点讲解的</span><br></pre></td></tr></table></figure>
 
-<h1 id="3-中断的分类"><a href="#3-中断的分类" class="headerlink" title="3.中断的分类"></a>3.中断的分类</h1><p><img src="https://files.catbox.moe/biyzit.png" alt="中断的分类"></p>
-<h1 id="4-中断机制的基本原理"><a href="#4-中断机制的基本原理" class="headerlink" title="4.中断机制的基本原理"></a>4.中断机制的基本原理</h1><p><img src="https://files.catbox.moe/c478t5.png" alt="中断机制的基本原理"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">这么多中断的类型</span><br><span class="line">不可能用同一个程序来处理</span><br><span class="line">所以cpu会根据中断信号的不同</span><br><span class="line">来找到中断信号相对应的中断处理程序</span><br><span class="line">当cpu在检测到中断信号后</span><br><span class="line">会根据中断信号的类型去查询“中断向量表”</span><br><span class="line">通过“中断向量表”</span><br><span class="line">找到各种类型的中断</span><br><span class="line">所对应的中断处理程序</span><br><span class="line">我们刚才所举的那么多例子</span><br><span class="line">中断处理程序一定是内核程序</span><br><span class="line">肯定是需要运行在“内核态”</span><br><span class="line">这就是一个中断机制基本的实现原理</span><br><span class="line">具体的硬件上该怎么实现</span><br><span class="line">这是计算机组成原理这门课要交大家的</span><br></pre></td></tr></table></figure>
+<p><img src="https://files.catbox.moe/7xrjkb.png" alt="虚拟"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">再看下面一个例子</span><br><span class="line">在单核cpu中</span><br><span class="line">用户可以打开qq</span><br><span class="line">可以打开迅雷</span><br><span class="line">等等</span><br><span class="line">既然这个电脑只有一个单核的cpu</span><br><span class="line">这个计算机当中</span><br><span class="line">为什么还可以同时</span><br><span class="line">执行这么多的程序呢</span><br><span class="line">其实这是用的虚拟处理器的技术</span><br><span class="line">实际上只有一个单核cpu</span><br><span class="line">这是一个物理上的实体</span><br><span class="line">但是在用户看来</span><br><span class="line">在我看来</span><br><span class="line">这个计算机变成了6个cpu同时在为自己服务</span><br><span class="line">这就是所谓的逻辑上的实体</span><br><span class="line">虚拟处理器技术就是典型的“时分复用技术”</span><br><span class="line">在微观上看</span><br><span class="line">一整个大的时间段</span><br><span class="line">被分割为了一个一个微小的时间片</span><br><span class="line">然后在各个时间段内</span><br><span class="line">处理机是交替着为各个进程服务</span><br><span class="line">所以这就是时分的意思</span><br><span class="line">他把一个大的时间段</span><br><span class="line">分为一个各个很小的时间片</span><br><span class="line">所以这是时分复用技术</span><br></pre></td></tr></table></figure>
 
-<h1 id="5-中断和异常"><a href="#5-中断和异常" class="headerlink" title="5.中断和异常"></a>5.中断和异常</h1><p><img src="https://files.catbox.moe/hbb7wp.png" alt="中断和异常"></p>
+<p><img src="https://files.catbox.moe/ug25ur.png" alt="虚拟"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">我们刚才讲了</span><br><span class="line">实现虚拟性的</span><br><span class="line">虚拟技术</span><br><span class="line">分为空分复用技术</span><br><span class="line">和时分复用技术</span><br><span class="line">很显然</span><br><span class="line">如果说我们系统失去了并发性</span><br><span class="line">就意味着一个时间段只需有一个程序在执行</span><br><span class="line">从刚才我们分析的过程中可以看到</span><br><span class="line">如果没有了并发性</span><br><span class="line">时分复用技术和空分复用技术也没有存在的意义</span><br><span class="line">也就是虚拟性也就没必要实现了</span><br><span class="line">所以可以说</span><br><span class="line">没有并发性</span><br><span class="line">就谈不上虚拟性</span><br><span class="line">虚拟性就没有存在的意义</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-操作系统的特征–异步"><a href="#5-操作系统的特征–异步" class="headerlink" title="5.操作系统的特征–异步"></a>5.操作系统的特征–异步</h1><p><img src="https://files.catbox.moe/1k51nh.png" alt="异步"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">假设老渣要和两个女孩并发的约会</span><br><span class="line">一号女孩会让老渣干这样的两件事</span><br><span class="line">首先是陪他吃饭</span><br><span class="line">二是把心给她</span><br><span class="line">二号女孩会让老渣先把心给她</span><br><span class="line">再让老渣陪她吃饭</span><br><span class="line">老渣在执行1号女孩的指令的过程相当于在执行第一道程序</span><br><span class="line">而执行2号女孩的指令的过程相当于在执行第二道程序</span><br><span class="line">而这两道程序需要并发的执行</span><br><span class="line">另外老渣只有一颗真心</span><br><span class="line">老渣的心相当于有限的系统资源</span><br><span class="line">由于这两道程序在系统中是并发的运行</span><br><span class="line">这两道程序有可能会争抢着使用系统资源</span><br><span class="line">老渣在执行这两道程序有可能是这么约的</span><br><span class="line">比如说</span><br><span class="line">刚才是他是和1号约</span><br><span class="line">执行1号的第一条指令</span><br><span class="line">陪她吃饭</span><br><span class="line">接下来执行1号的第二条指令</span><br><span class="line">根据1号的要求</span><br><span class="line">老渣会把心给1号</span><br><span class="line">也就是说这个系统资源分配给了1号</span><br><span class="line">而接下来的时间段是要和二号约</span><br><span class="line">二号要求老渣把心给她</span><br><span class="line">但是老渣的心这个有限的系统资源</span><br><span class="line">已经给了1号</span><br><span class="line">并且1号没有把系统资源归还给老渣</span><br><span class="line">所以2号要求老渣把心给她</span><br><span class="line">这个请求就不能被满足</span><br><span class="line">所以第二道程序运行道10-11点的时候肯定会被阻塞</span><br><span class="line">需要先停一段时间</span><br><span class="line">等她获得了她想要的资源的之后</span><br><span class="line">第二道程序才能接着往下执行</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">另一种情况</span><br><span class="line">老渣还有可能是这么约的</span><br><span class="line">她刚开始可能和1号约</span><br><span class="line">然后陪1号吃饭</span><br><span class="line">接下来这个时间段是和2号约</span><br><span class="line">根据2号的指令</span><br><span class="line">她把心给了2号</span><br><span class="line">再接下来他又和一号约</span><br><span class="line">也就是说要执行一号的第二条指令</span><br><span class="line">1号让老渣把心给她</span><br><span class="line">但是由于此时</span><br><span class="line">有限的系统资源</span><br><span class="line">是被2号所占有的</span><br><span class="line">并且2号没有归还给系统</span><br><span class="line">因此</span><br><span class="line">1号这个把心给她的请求不能够被满足</span><br><span class="line">所以第一道程序在10点到11点就会被阻塞</span><br><span class="line">然后等待系统资源的分配</span><br><span class="line">所以在两道程序并发运行的过程中</span><br><span class="line">这些并发运行的程序会争抢着使用</span><br><span class="line">系统当中的资源</span><br><span class="line">所以这些程序的运行不是一贯到底</span><br><span class="line">而是走走停停</span><br><span class="line">以不可预知的速度向前推进</span><br><span class="line">有的时候有可能是2号停下来等待</span><br><span class="line">有的时候有可能是1号停下来等待</span><br><span class="line">在实际的操作系统当中</span><br><span class="line">各个并发运行的程序</span><br><span class="line">之间也会出现</span><br><span class="line">这种争抢着使用</span><br><span class="line">有限的系统资源</span><br><span class="line">的情况</span><br><span class="line">比如说两个程序争抢着使用</span><br><span class="line">摄像头资源</span><br><span class="line">或者争抢着使用打印机资源</span><br><span class="line">所以多道程序环境下</span><br><span class="line">多个程序并发执行</span><br><span class="line">所带来的一个特性</span><br><span class="line">就是所谓的异步性</span><br><span class="line">很显然</span><br><span class="line">如果失去了并发性</span><br><span class="line">系统就只能串行的执行各个程序</span><br><span class="line">也就是一号程序执行完了</span><br><span class="line">也就是1号程序把老渣的心归还给老渣的时候</span><br><span class="line">他才会接着执行第二道程序</span><br><span class="line">这个时候</span><br><span class="line">各个程序的执行肯定是会一贯到底的</span><br><span class="line">并不会走走停停</span><br><span class="line">所以只有系统拥有并发性</span><br><span class="line">才有可能导致我们之前所说的异步性</span><br></pre></td></tr></table></figure>
+
+<h1 id="6-知识回顾"><a href="#6-知识回顾" class="headerlink" title="6.知识回顾"></a>6.知识回顾</h1><p><img src="https://files.catbox.moe/zixc10.png" alt="知识回顾"></p>
 
       
     </div>
@@ -515,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/09/26/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/" rel="next" title="操作系统的运行机制">
-                <i class="fa fa-chevron-left"></i> 操作系统的运行机制
+              <a href="/2021/09/29/ch1.3.2-%E4%B8%AD%E6%96%AD%E5%92%8C%E5%BC%82%E5%B8%B8/" rel="next" title="中断和异常">
+                <i class="fa fa-chevron-left"></i> 中断和异常
               </a>
             
           </div>
@@ -525,8 +501,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/09/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81/" rel="prev" title="操作系统的特征">
-                操作系统的特征 <i class="fa fa-chevron-right"></i>
+              <a href="/2021/10/09/ch1.3.3-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/" rel="prev" title="系统调用">
+                系统调用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -610,7 +586,7 @@
                 <!--<a href="/archives%7C%7C%20archive"> -->
                 <a href="/archives">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -674,7 +650,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%B8%AD%E6%96%AD%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">1.中断的作用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%B8%AD%E6%96%AD%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">2.中断的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1%E5%86%85%E4%B8%AD%E6%96%AD%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-number">2.1.</span> <span class="nav-text">2.1内中断的例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2%E5%A4%96%E4%B8%AD%E6%96%AD%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-number">2.2.</span> <span class="nav-text">2.2外中断的例子</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E4%B8%AD%E6%96%AD%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">3.</span> <span class="nav-text">3.中断的分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">4.中断机制的基本原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E4%B8%AD%E6%96%AD%E5%92%8C%E5%BC%82%E5%B8%B8"><span class="nav-number">5.</span> <span class="nav-text">5.中断和异常</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81%E2%80%93%E5%B9%B6%E5%8F%91"><span class="nav-number">1.</span> <span class="nav-text">1.操作系统的特征–并发</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81%E2%80%93%E5%85%B1%E4%BA%AB"><span class="nav-number">2.</span> <span class="nav-text">2.操作系统的特征–共享</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81%E2%80%93%E5%B9%B6%E5%8F%91%E5%92%8C%E5%85%B1%E4%BA%AB%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">3.</span> <span class="nav-text">3.操作系统的特征–并发和共享的关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81%E2%80%93%E8%99%9A%E6%8B%9F"><span class="nav-number">4.</span> <span class="nav-text">4.操作系统的特征–虚拟</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%89%B9%E5%BE%81%E2%80%93%E5%BC%82%E6%AD%A5"><span class="nav-number">5.</span> <span class="nav-text">5.操作系统的特征–异步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE"><span class="nav-number">6.</span> <span class="nav-text">6.知识回顾</span></a></li></ol></div>
             
 
           </div>
@@ -708,7 +684,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">55k</span>
+    <span title="Site words total count">61.6k</span>
   
 </div>
   <!--
